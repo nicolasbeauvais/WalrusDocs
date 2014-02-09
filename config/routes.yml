@@ -1,0 +1,11 @@
+# Routes
+
+_home:
+    path:   ''
+    controller:   'HelloController'
+    action: 'run'
+
+_config:
+    path: 'config'
+    controller: 'ConfigController'
+    action: 'config'
