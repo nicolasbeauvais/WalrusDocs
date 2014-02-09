@@ -13,6 +13,6 @@ class HelloController extends WalrusFrontController
 
     public function run()
     {
-        echo 'Hello Walrus!';
+        $this->skeleton('_skeleton_main');
     }
 }
