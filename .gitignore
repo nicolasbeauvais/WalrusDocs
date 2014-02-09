@@ -1,0 +1,25 @@
+# OS
+.DS_Store
+Thumbs.db
+
+#vendors
+www/templates_c/
+
+#Walrus
+log.txt
+config/config.yml
+
+# Software
+.dropbox
+
+# Build
+node_modules/
+Gruntfile.js
+package.json
+
+# IDEs
+.buildpath
+.project
+.settings/
+.build/
+.idea/
