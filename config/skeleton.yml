@@ -1,1 +1,11 @@
 # Skeletons
+
+_skeleton_main:
+    head:
+        template: "header/head"
+    nav:
+        template: "menu/menu"
+    body:
+        template: "body/main"
+    footer:
+        template: "footer/footer"
