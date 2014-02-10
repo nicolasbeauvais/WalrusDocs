@@ -9,3 +9,13 @@ _skeleton_main:
         template: "body/main"
     footer:
         template: "footer/footer"
+
+_skeleton_doc:
+    head:
+        template: "header/head"
+    nav:
+        template: "menu/menu"
+    body:
+        template: "body/doc"
+    footer:
+        template: "footer/footer"

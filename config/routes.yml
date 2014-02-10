@@ -2,10 +2,10 @@
 
 _home:
     path:   ''
-    controller:   'HelloController'
+    controller: 'HomeController'
     action: 'run'
 
-_config:
-    path: 'config'
-    controller: 'ConfigController'
-    action: 'config'
+_doc:
+    path: 'doc'
+    controller: 'HomeController'
+    action: 'doc'
