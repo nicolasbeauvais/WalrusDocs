@@ -15,32 +15,32 @@
         <div id="features-container">
             <div class="feature">
                 <h4><span class="icon-pull"></span>Long polling</h4>
-                <p>Walrus give you a powerfull integrated long polling system,
+                <p>Walrus give you a powerful integrated long polling system,
                    that you can set up and use with only 1 line of PHP code !
                    Yes, black magic exist.</p>
             </div>
             <div class="feature">
                 <h4><span class="icon-ajax"></span>AJAX navigation</h4>
                 <p>A full AJAX navigation script is provided, you have nothing to do,
-                   it just work with your own HTML links. You can also use Lazy loading
+                   it just works with your own HTML links. You can also use Lazy loading
                    in a very simple way</p>
             </div>
             <div class="feature">
                 <h4><span class="icon-template"></span>Smarty/HAML templating</h4>
-                <p>Walrus support three templating langage, HAML for rubyist, Smarty
+                <p>Walrus support three templating language, HAML for rubyist, Smarty
                    for the lovers, and for sure, PHP, obviously the faster templating
                    language in PHP</p>
             </div>
             <div class="feature last">
                 <h4><span class="icon-skeleton"></span>Skeleton</h4>
                 <p>Skeleton is a unique feature who let you make group of templates
-                   for a better maintenability, it's also great for letting font-end
-                   developers mange there template</p>
+                   for a better Maintainability, it's also great for letting front-end
+                   developers manage their templates</p>
             </div>
             <div class="break"></div>
             <div class="feature">
                 <h4><span class="icon-redbean"></span>RedBean ORM</h4>
-                <p>RedBean is a really great PHP ORM, it can help you create your
+                <p>RedBean is a really simple PHP ORM, it can help you create your
                    relationship in development mode, it's really fast, simple, and
                     let you use some SQL language</p>
             </div>
@@ -51,9 +51,9 @@
             </div>
             <div class="feature">
                 <h4><span class="icon-role"></span>Simple ACL</h4>
-                <p>With Walrus no need of big secure algorythme, with our ACL system you can
-                   just specify some role on everything you want, like route, template or
-                   even skeleton.</p>
+                <p>With Walrus no need of big secure algorithms, with our ACL system you can
+                   just specify few roles, like routes, templates or
+                   even skeletons.</p>
             </div>
             <div class="feature last">
                 <h4><span class="icon-file"></span>File manager</h4>
