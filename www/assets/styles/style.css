@@ -1,0 +1,198 @@
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600);
+@font-face {
+  font-family: 'walrus';
+  src: url("../fonts/walrus.eot?-be8axl");
+  src: url("../fonts/walrus.eot?#iefix-be8axl") format("embedded-opentype"), url("../fonts/walrus.woff?-be8axl") format("woff"), url("../fonts/walrus.ttf?-be8axl") format("truetype"), url("../fonts/walrus.svg?-be8axl#walrus") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn,
+em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu,
+nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after, q:before,
+q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+textarea:focus, input:focus {
+  outline: 0; }
+
+a {
+  text-decoration: none; }
+
+a:link, a:visited, a:hover, a:active {
+  color: #000; }
+
+/* vars */
+/* Icon font */
+[class^="icon-"], [class*=" icon-"] {
+  font-family: 'walrus';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 35px;
+  vertical-align: middle;
+  color: #5bcaf5;
+  font-size: 35px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+
+.icon-template:before {
+  content: "\e600"; }
+
+.icon-skeleton:before {
+  content: "\e601"; }
+
+.icon-role:before {
+  content: "\e602"; }
+
+.icon-redbean:before {
+  content: "\e603"; }
+
+.icon-pull:before {
+  content: "\e604"; }
+
+.icon-file:before {
+  content: "\e605"; }
+
+.icon-cli:before {
+  content: "\e606"; }
+
+.icon-ajax:before {
+  content: "\e607"; }
+
+/* Body */
+body {
+  font-family: 'Source Sans Pro', 'Arial'; }
+
+/* Container */
+.container {
+  width: 1000px;
+  margin: auto; }
+
+/* Menu */
+#menu {
+  height: 80px;
+  border-bottom: 1px solid #d8e0e2; }
+  #menu img {
+    display: inline-block; }
+  #menu h1 {
+    display: none; }
+  #menu ul {
+    display: inline-block;
+    float: right; }
+    #menu ul li {
+      float: left;
+      padding: 0 25px;
+      line-height: 80px;
+      font-weight: 300;
+      font-size: 20px; }
+      #menu ul li a {
+        color: #42535a; }
+
+/* Head */
+#head {
+  margin-top: 130px;
+  padding-bottom: 130px;
+  text-align: center;
+  border-bottom: 1px solid #d8e0e2; }
+  #head h1 {
+    font-size: 64px;
+    font-weight: 200;
+    text-transform: uppercase;
+    color: #5bcaf5;
+    margin-bottom: 30px; }
+  #head h4 {
+    color: #42535a;
+    font-size: 24px;
+    font-weight: 200;
+    margin-bottom: 90px; }
+  #head #head-links a {
+    width: 225px;
+    display: inline-block;
+    background-color: #5bcaf5;
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: 600;
+    text-transform: uppercase;
+    padding: 20px 0;
+    border-radius: 3px; }
+    #head #head-links a:first-child {
+      margin-right: 25px; }
+
+/* Features */
+#features {
+  background-color: #f5fafd;
+  padding-bottom: 90px; }
+  #features .h2 {
+    font-weight: 200;
+    font-size: 40px;
+    color: #42535a;
+    text-align: center;
+    padding-top: 75px;
+    padding-bottom: 100px; }
+  #features .feature {
+    width: 225px;
+    display: inline-block;
+    min-height: 153px;
+    margin-right: 29px; }
+    #features .feature.last {
+      margin-right: 0; }
+    #features .feature h4 {
+      color: #42535a;
+      font-size: 18px;
+      font-weight: 600;
+      text-indent: -7px; }
+    #features .feature p {
+      margin-top: 20px;
+      font-size: 14px;
+      color: #828689; }
+  #features .break {
+    height: 70px; }
+
+/* Footer */
+#footer {
+  height: 75px;
+  background-color: #42535a;
+  color: #abb8be;
+  text-transform: uppercase; }
+  #footer .copy {
+    font-size: 12px;
+    display: inline-block;
+    line-height: 75px; }
+  #footer ul {
+    display: inline-block;
+    float: right; }
+    #footer ul li {
+      font-size: 10px;
+      float: left;
+      line-height: 75px; }
+      #footer ul li a {
+        color: #abb8be;
+        padding: 0 20px; }

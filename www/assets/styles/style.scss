@@ -25,6 +25,7 @@ $border: #d8e0e2;
 $font-menu: #42535a;
 $font-blue: #5bcaf5;
 $font-light: #828689;
+$font-footer: #abb8be;
 
 /* Icon font */
 [class^="icon-"], [class*=" icon-"] {
@@ -69,7 +70,7 @@ $font-light: #828689;
 
 /* Body */
 body {
-  font-family: 'Source Sans Pro';
+  font-family: 'Source Sans Pro', 'Arial';
 }
 
 /* Container */
@@ -97,7 +98,9 @@ body {
       line-height: 80px;
       font-weight: 300;
       font-size: 20px;
-      color: $font-menu;
+      a {
+        color: $font-menu;
+      }
     }
   }
 }
@@ -154,7 +157,8 @@ body {
   .feature {
     width: 225px;
     display: inline-block;
-    margin-right: 30px;
+    min-height: 153px;
+    margin-right: 29px;
     &.last {
       margin-right: 0;
     }
@@ -172,5 +176,31 @@ body {
   }
   .break {
     height: 70px;
+  }
+}
+
+/* Footer */
+#footer {
+  height: 75px;
+  background-color: $font-menu;
+  color: $font-footer;
+  text-transform: uppercase;
+  .copy {
+    font-size: 12px;
+    display: inline-block;
+    line-height: 75px;
+  }
+  ul {
+    display: inline-block;
+    float: right;
+    li {
+      font-size: 10px;
+      float: left;
+      line-height: 75px;
+      a {
+        color: $font-footer;
+        padding: 0 20px;
+      }
+    }
   }
 }
