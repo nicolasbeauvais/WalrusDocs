@@ -85,12 +85,13 @@ body {
   border-bottom: 1px solid $border;
   img {
     display: inline-block;
+    float: left;
   }
   h1 {
     display: none;
   }
   ul {
-    display: inline-block;
+    display: inline;
     float: right;
     li {
       float: left;
@@ -171,6 +172,7 @@ body {
     p {
       margin-top: 20px;
       font-size: 14px;
+      line-height: 19px;
       color: $font-light;
     }
   }
@@ -189,9 +191,10 @@ body {
     font-size: 12px;
     display: inline-block;
     line-height: 75px;
+    float: left;
   }
   ul {
-    display: inline-block;
+    display: inline;
     float: right;
     li {
       font-size: 10px;

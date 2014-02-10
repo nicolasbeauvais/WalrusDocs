@@ -101,11 +101,12 @@ body {
   height: 80px;
   border-bottom: 1px solid #d8e0e2; }
   #menu img {
-    display: inline-block; }
+    display: inline-block;
+    float: left; }
   #menu h1 {
     display: none; }
   #menu ul {
-    display: inline-block;
+    display: inline;
     float: right; }
     #menu ul li {
       float: left;
@@ -172,6 +173,7 @@ body {
     #features .feature p {
       margin-top: 20px;
       font-size: 14px;
+      line-height: 19px;
       color: #828689; }
   #features .break {
     height: 70px; }
@@ -185,9 +187,10 @@ body {
   #footer .copy {
     font-size: 12px;
     display: inline-block;
-    line-height: 75px; }
+    line-height: 75px;
+    float: left; }
   #footer ul {
-    display: inline-block;
+    display: inline;
     float: right; }
     #footer ul li {
       font-size: 10px;
