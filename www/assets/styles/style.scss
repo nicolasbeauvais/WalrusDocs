@@ -158,6 +158,7 @@ body {
   .feature {
     width: 225px;
     display: inline-block;
+    vertical-align: top;
     min-height: 153px;
     margin-right: 29px;
     &.last {
@@ -172,7 +173,7 @@ body {
     p {
       margin-top: 20px;
       font-size: 14px;
-      line-height: 19px;
+      line-height: 20px;
       color: $font-light;
     }
   }
