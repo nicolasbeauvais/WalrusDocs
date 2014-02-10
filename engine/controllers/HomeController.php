@@ -5,14 +5,19 @@ namespace engine\controllers;
 use Walrus\core\WalrusFrontController as WalrusFrontController;
 
 /**
- * Class HelloController
+ * Class HomeController
  * @package engine\controllers
  */
-class HelloController extends WalrusFrontController
+class HomeController extends WalrusFrontController
 {
 
     public function run()
     {
         $this->skeleton('_skeleton_main');
+    }
+
+    public function doc()
+    {
+        $this->skeleton('_skeleton_doc');
     }
 }
