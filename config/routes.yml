@@ -6,6 +6,11 @@ _home:
     action: 'run'
 
 _doc:
-    path: 'doc'
+    path: 'doc/(:doc)'
     controller: 'HomeController'
     action: 'doc'
+    filters:
+        require:
+            doc: '[\w-]+'
+        default:
+            doc: 'required'

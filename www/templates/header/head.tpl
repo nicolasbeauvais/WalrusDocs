@@ -13,7 +13,9 @@
     {* META DATA *}
 
     {* STYLE *}
-    <link rel="stylesheet" href="./assets/styles/style.css" type="text/css">
+    <link rel="stylesheet" href="{$smarty.const.ASSETS}styles/style.css" type="text/css">
+    <link rel="stylesheet" href="{$smarty.const.ASSETS}styles/shCore.css" type="text/css">
+    <link rel="stylesheet" href="{$smarty.const.ASSETS}styles/shThemeDefault.css" type="text/css">
     {* STYLE *}
 </head>
 <body>

@@ -91,6 +91,9 @@ a:link, a:visited, a:hover, a:active {
 body {
   font-family: 'Source Sans Pro', 'Arial'; }
 
+.clear {
+  clear: both; }
+
 /* Container */
 .container {
   width: 1000px;
@@ -161,6 +164,7 @@ body {
   #features .feature {
     width: 225px;
     display: inline-block;
+    vertical-align: top;
     min-height: 153px;
     margin-right: 29px; }
     #features .feature.last {
@@ -173,8 +177,9 @@ body {
     #features .feature p {
       margin-top: 20px;
       font-size: 14px;
-      line-height: 19px;
-      color: #828689; }
+      line-height: 20px;
+      color: #828689;
+      min-height: 100px; }
   #features .break {
     height: 70px; }
 
@@ -199,3 +204,59 @@ body {
       #footer ul li a {
         color: #abb8be;
         padding: 0 20px; }
+
+/* Documentation */
+#sidebar {
+  display: inline-block;
+  width: 200px;
+  border-right: 1px solid #d8e0e2;
+  border-left: 1px solid #d8e0e2;
+  text-indent: 20px;
+  padding-bottom: 50px;
+  float: left; }
+  #sidebar h4 {
+    color: #000000;
+    font-size: 24px;
+    font-weight: 300;
+    padding: 50px 0 20px 0; }
+  #sidebar ul li {
+    line-height: 25px;
+    color: #828689;
+    cursor: pointer; }
+    #sidebar ul li:hover {
+      color: #000; }
+
+#doc-content {
+  width: 758px;
+  padding: 50px 20px;
+  float: right;
+  display: inline-block; }
+  #doc-content h5 {
+    font-weight: 600;
+    font-size: 40px;
+    color: #42535a;
+    padding-bottom: 30px;
+    padding-top: 10px; }
+    #doc-content h5:first-child {
+      padding-top: 0; }
+  #doc-content h6 {
+    font-weight: 500;
+    font-size: 26px;
+    color: #42535a;
+    padding-top: 10px;
+    padding-bottom: 30px; }
+    #doc-content h6:first-child {
+      padding-top: 0; }
+  #doc-content p {
+    padding-bottom: 30px;
+    line-height: 20px; }
+  #doc-content ul {
+    padding-left: 20px;
+    list-style: circle; }
+    #doc-content ul li {
+      line-height: 20px; }
+  #doc-content pre {
+    padding-bottom: 20px; }
+  #doc-content .syntaxhighlighter {
+    overflow-y: hidden !important;
+    overflow-x: auto !important; }

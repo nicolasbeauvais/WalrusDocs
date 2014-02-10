@@ -1,3 +1,5 @@
+<div id="container">
+
 <div id="head">
     <div class="container">
         <h1>Walrus</h1>
@@ -63,4 +65,6 @@
             </div>
         </div>
     </div>
+</div>
+
 </div>
