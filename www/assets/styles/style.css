@@ -250,13 +250,16 @@ body {
   #doc-content p {
     padding-bottom: 30px;
     line-height: 20px; }
+  #doc-content .bold {
+    font-weight: 600;
+    font-size: 17px;
+    color: #42535a; }
   #doc-content ul {
-    padding-left: 20px;
+    padding: 20px 0 20px 20px;
     list-style: circle; }
     #doc-content ul li {
       line-height: 20px; }
-  #doc-content pre {
-    padding-bottom: 20px; }
   #doc-content .syntaxhighlighter {
     overflow-y: hidden !important;
-    overflow-x: auto !important; }
+    overflow-x: auto !important;
+    padding-bottom: 30px; }

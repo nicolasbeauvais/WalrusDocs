@@ -1,6 +1,6 @@
 <h5>Title in h5</h5>
 
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+<p>Lorem ipsum <span class="bold">dolor</span> sit amet, consectetur adipiscing elit.
    Vestibulum mollis leo eget arcu lacinia facilisis. Nullam
    vitae felis neque. Aenean sem erat, pretium id condimentum a,
    tristique auctor elit. Duis turpis nisi, interdum eleifend
@@ -10,7 +10,7 @@
 
 <h6>Title in h6</h6>
 
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+<p>Lorem ipsum <span class="bold">dolor</span> sit amet, consectetur adipiscing elit.
     Vestibulum mollis leo eget arcu lacinia facilisis. Nullam
     vitae felis neque. Aenean sem erat, pretium id condimentum a,
     tristique auctor elit. Duis turpis nisi, interdum eleifend

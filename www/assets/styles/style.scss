@@ -269,18 +269,22 @@ body {
     padding-bottom: 30px;
     line-height: 20px;
   }
+  .bold {
+    font-weight: 600;
+    font-size: 17px;
+    color: $font-menu;
+  }
   ul {
-    padding-left: 20px;
+    padding: 20px 0 20px 20px;
     list-style: circle;
     li {
       line-height: 20px;
     }
   }
-  pre {
-    padding-bottom: 20px;
-  }
   .syntaxhighlighter {
     overflow-y: hidden !important;
     overflow-x: auto !important;
+    padding-bottom: 30px;
   }
 }
+
