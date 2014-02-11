@@ -4,7 +4,7 @@
 
 <ul>
     <li><span class="bold">You have the <a href="./required">proper requirements</a> on your machine</span></li>
-    <li><span class="bold">You have the <a href="./installation.tpl">properly installed</a> Walrus on your machine</span></li>
+    <li><span class="bold">You have the <a href="./installation">properly installed</a> Walrus on your machine</span></li>
 </ul>
 
 <p>After you have done these two simple things, here is what Walrus architecture looks like and what directories are meant to :</p>

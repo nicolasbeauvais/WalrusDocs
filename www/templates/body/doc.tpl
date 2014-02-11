@@ -22,6 +22,7 @@
             <li><a href="{$smarty.const.URL}doc/ajax-navigation">AJAX navigation</a></li>
             <li><a href="{$smarty.const.URL}doc/lazyload">Lazyload</a></li>
             <li><a href="{$smarty.const.URL}doc/front-long-polling">Long polling</a></li>
+            <li><a href="{$smarty.const.URL}doc/js-templating">Javascript Templating</a></li>
         </ul>
     </div>
     <div id="doc-content">
