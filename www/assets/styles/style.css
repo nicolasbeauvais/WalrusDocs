@@ -254,6 +254,8 @@ body {
     font-weight: 600;
     font-size: 17px;
     color: #42535a; }
+  #doc-content .italic {
+    font-style: italic; }
   #doc-content ul {
     padding: 20px 0 20px 20px;
     list-style: circle; }
