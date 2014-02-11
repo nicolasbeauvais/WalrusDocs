@@ -18,6 +18,7 @@
 <script src="{$smarty.const.ASSETS}javascript/shBrushSql.js"></script>
 <script src="{$smarty.const.ASSETS}javascript/shBrushYaml.js"></script>
 <script src="{$smarty.const.ASSETS}javascript/script.js"></script>
+{literal}
 <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
         (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -27,5 +28,6 @@
     ga('create', 'UA-29129365-6', 'walrus-framework.com');
     ga('send', 'pageview');
 </script>
+{/literal}
 </body>
 </html>
