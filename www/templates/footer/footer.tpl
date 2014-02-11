@@ -1,6 +1,6 @@
 <footer id="footer">
     <div class="container">
-        <span class="copy">Walurs &copy; copyright 2014</span>
+        <span class="copy">Walrus &copy; copyright 2014</span>
         <ul>
             <li><a href="{$smarty.const.URL}">Welcome</a></li>
             <li><a href="{$smarty.const.URL}doc">Documentation</a></li>
