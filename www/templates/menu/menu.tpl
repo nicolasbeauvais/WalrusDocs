@@ -1,6 +1,6 @@
 <nav id="menu">
     <div class="container">
-        <a href="./"><img src="{$smarty.const.ASSETS}images/logo.png" alt=""/></a>
+        <a href="/"><img src="{$smarty.const.ASSETS}images/logo.png" alt=""/></a>
         <ul>
             <li><a href="{$smarty.const.URL}">Welcome</a></li>
             <li><a href="{$smarty.const.URL}doc">Documentation</a></li>
