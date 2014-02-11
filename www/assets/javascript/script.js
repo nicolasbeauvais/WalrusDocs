@@ -2,4 +2,9 @@ Walrus.init({
     ajaxNavigation: true
 });
 
-SyntaxHighlighter.all()
+SyntaxHighlighter.all();
+
+$(document).on('pageLoaded', function () {
+    console.log('test');
+    SyntaxHighlighter.highlight();
+});
