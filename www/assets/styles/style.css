@@ -263,3 +263,6 @@ body {
     overflow-y: hidden !important;
     overflow-x: auto !important;
     padding-bottom: 30px; }
+  #doc-content a {
+    text-decoration: underline;
+    color: #42535a; }

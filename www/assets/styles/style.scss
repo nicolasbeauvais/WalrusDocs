@@ -286,5 +286,8 @@ body {
     overflow-x: auto !important;
     padding-bottom: 30px;
   }
+  a {
+    text-decoration: underline;
+    color: $font-menu;
+  }
 }
-
