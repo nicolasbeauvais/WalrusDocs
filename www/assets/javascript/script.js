@@ -5,6 +5,5 @@ Walrus.init({
 SyntaxHighlighter.all();
 
 $(document).on('pageLoaded', function () {
-    console.log('test');
     SyntaxHighlighter.highlight();
 });
