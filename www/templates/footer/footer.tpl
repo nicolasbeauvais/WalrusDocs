@@ -16,6 +16,7 @@
 <script src="{$smarty.const.ASSETS}javascript/shBrushJScript.js"></script>
 <script src="{$smarty.const.ASSETS}javascript/shBrushPhp.js"></script>
 <script src="{$smarty.const.ASSETS}javascript/shBrushSql.js"></script>
+<script src="{$smarty.const.ASSETS}javascript/shBrushYaml.js"></script>
 <script src="{$smarty.const.ASSETS}javascript/script.js"></script>
 </body>
 </html>
