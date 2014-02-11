@@ -13,10 +13,6 @@
 
     use Walrus\core\WalrusFrontController as WalrusFrontController;
 
-    /**
-     * Class HomeController
-     * @package engine\controllers
-     */
     class HomeController extends WalrusFrontController
     {
 
@@ -90,3 +86,66 @@
 </pre>
 
 <p>The controller method return the controller class so you can directly call method from it</p>
+
+<h6>Call a method from a model</h6>
+
+<p>To call a mehtod from a model, use the model method:</p>
+
+<pre class="brush: php">
+    public function run()
+    {
+        $this->model('test')->methodOfTestModel();
+    }
+</pre>
+
+<p>The model method return the model class so you can directly call method from it</p>
+
+<h6>Redirect</h6>
+
+<p>If you want to redirect your controller to an other web page, simply use the go method</p>
+
+<pre class="brush: php">
+    public function run()
+    {
+        $this->go('http://url-to-redirect.com');
+    }
+</pre>
+
+<h6>Reroute</h6>
+
+<p>Walrus provide a reroute method, everything on your controller after a reroute will not be
+   executed. Reroute use a light routing version of walrus to be processed really quickly</p>
+
+<pre class="brush: php">
+    public function run()
+    {
+        $this->reroute('controller', 'action', array('param' => 'hello'));
+    }
+</pre>
+
+<h6>Get (Hard)</h6>
+
+<p>The get hard method give you the content of a specified url (curl style)</p>
+
+<pre class="brush: php">
+    public function run()
+    {
+        $this->getHard('http://website-to-get-content.com');
+    }
+</pre>
+
+<h6>Get (Soft)</h6>
+
+<p>The get soft method is a unique method from Walrus framework, this method allow you to get
+   the rendered content of a controller's action, it use the same light rerouting as the reroute
+   method and catch all the front end rendering as a string, every interaction with the front
+   controller like setting view or registering variable are instancied for a full compatibility
+    between controllers</p>
+
+<pre class="brush: php">
+    public function run()
+    {
+        $content = $this->getSoft('controller', 'action', array('hello' => $hello));
+    }
+</pre>
+
