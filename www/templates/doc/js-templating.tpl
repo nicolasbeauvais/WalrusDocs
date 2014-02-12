@@ -17,6 +17,7 @@
 {literal}
 <pre class="brush: javascript">
     var name = 'John';
-    var domContent = Walrus.compile(document.getElementById('templating').innerHTML, name);
+    var content = document.getElementById('templating').innerHTML;
+    var domContent = Walrus.compile(content, name);
 </pre>
 {/literal}
