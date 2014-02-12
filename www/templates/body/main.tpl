@@ -6,7 +6,7 @@
         <h4>Certainly not that big whatever factory.</h4>
         <div id="head-links">
             <a href="https://github.com/E-Wok/Walrus" target="_blank">GitHub</a>
-            <a href="./">Documentation</a>
+            <a href="{$smarty.const.URL}doc">Documentation</a>
         </div>
     </div>
 </div>
