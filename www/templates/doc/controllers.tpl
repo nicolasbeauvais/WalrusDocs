@@ -58,7 +58,7 @@
 <pre class="brush: php">
     public function run()
     {
-        $this->register('post', $_POST);
+        $this->skeleton('some_skeleton');
     }
 </pre>
 
