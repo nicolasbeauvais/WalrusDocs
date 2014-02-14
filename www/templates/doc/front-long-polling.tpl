@@ -1,6 +1,6 @@
 <h5>Long Polling</h5>
 
-<p>Walrus let you setup a long polling script in a very simple way, check the
+<p><strong>Walrus</strong> let you setup a long polling script in a very simple way, check the
    <a href="api-and-long-polling">API & long polling</a> to setup the backend
    of your long polling first</p>
 

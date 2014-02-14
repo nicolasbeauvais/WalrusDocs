@@ -1,9 +1,9 @@
 <h5>Walrus API</h5>
 
-<p>Walrus provide you a simple way to make your own API, every route begining with
+<p><strong>Walrus</strong> provide you a simple way to make your own API, every route begining with
    <span class="bold">api/</span> will be redirected to a controller in
    <span class="bold">engine/api/</span><br/>
-   Using the Walrus API is way faster than the normal routing, it's great for all your ajax call when you use it as an
+   Using the <strong>Walrus</strong> API is way faster than the normal routing, it's great for all your ajax call when you use it as an
    internal API for example</p>
 
 Here is the route pattern:
@@ -12,11 +12,11 @@ Here is the route pattern:
     /api/controller/action/
 </pre>
 
-<p>The walrus API tools handle for you HTTP response, the only available output is JSON for now</p>
+<p>The <strong>Walrus</strong> API tools handle for you HTTP response, the only available output is JSON for now</p>
 
 <h6>API controller</h6>
 
-<p>You can create a new API controller with the <a href="/doc/cli">Walrus CLI</a>, or create it yourself with
+<p>You can create a new API controller with the <a href="/doc/cli"><strong>Walrus</strong> CLI</a>, or create it yourself with
     this basic syntax:</p>
 
 {literal}
@@ -62,10 +62,10 @@ Here is the route pattern:
 
 <h5>Long Polling</h5>
 
-<p>Walrus let you setup a long polling script in a very simple way, long polling work best on API route, because API
+<p><strong>Walrus</strong> let you setup a long polling script in a very simple way, long polling work best on API route, because API
   route a way more lightweight and handle for you HTPP code response and JSON output</p>
 
-<p>The first step is to subscribe to the Walrus long polling, for this create a controller with an empty action and add
+<p>The first step is to subscribe to the <strong>Walrus</strong> long polling, for this create a controller with an empty action and add
    the following line:</p>
 
 <pre class="brush: php">
@@ -96,7 +96,7 @@ Here is the route pattern:
     }
 </pre>
 
-<p>The second and last thing to do is to verify if we have received some data, and if so, return the data. Walrus
+<p>The second and last thing to do is to verify if we have received some data, and if so, return the data. <strong>Walrus</strong>
    long polling also need from you the last received id, this is really simple to do (this can be simplified but
    it's more explicit on this way):</p>
 
@@ -127,8 +127,8 @@ Here is the route pattern:
     }
 </pre>
 
-<p>That's all ! your long polling is fully setup on your backend. Now you need to request it with Walrus.js, take a
-   look to <a href="/doc/front-long-polling">Walrus FrontEnd long polling</a></p>
+<p>That's all ! your long polling is fully setup on your backend. Now you need to request it with <strong>Walrus</strong>.js, take a
+   look to <a href="/doc/front-long-polling"><strong>Walrus</strong> FrontEnd long polling</a></p>
 
 
 

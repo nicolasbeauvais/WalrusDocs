@@ -1,7 +1,7 @@
 <h5>Create a new Controllers</h5>
 
 <p>
-   You can create a new controller with the <a href="./doc/cli">Walrus CLI</a>, or create it yourself with
+   You can create a new controller with the <a href="./doc/cli"><strong>Walrus</strong> CLI</a>, or create it yourself with
    this basic syntax:
 </p>
 
@@ -113,8 +113,8 @@
 
 <h6>Reroute</h6>
 
-<p>Walrus provide a reroute method, everything on your controller after a reroute will not be
-   executed. Reroute use a light routing version of walrus to be processed really quickly</p>
+<p><strong>Walrus</strong> provide a reroute method, everything on your controller after a reroute will not be
+   executed. Reroute use a light routing version of <strong>Walrus</strong> to be processed really quickly</p>
 
 <pre class="brush: php">
     public function run()
@@ -136,7 +136,7 @@
 
 <h6>Get (Soft)</h6>
 
-<p>The get soft method is a unique method from Walrus framework, this method allow you to get
+<p>The get soft method is a unique method from <strong>Walrus</strong> <strong>framework</strong>, this method allow you to get
    the rendered content of a controller's action, it use the same light rerouting as the reroute
    method and catch all the front end rendering as a string, every interaction with the front
    controller like setting view or registering variable are instancied for a full compatibility

@@ -3,7 +3,7 @@
 <div id="head">
     <div class="container">
         <h1>Walrus</h1>
-        <h4>Certainly not that big whatever factory.</h4>
+        <p>Certainly not that big whatever factory.</p>
         <div id="head-links">
             <a href="https://github.com/E-Wok/Walrus" target="_blank">GitHub</a>
             <a href="{$smarty.const.URL}doc">Documentation</a>
@@ -13,11 +13,11 @@
 
 <div id="features">
     <div class="container">
-        <div class="h2">Walrus framework features</div>
+        <div class="h2"><h2>Walrus framework</h2> features</div>
         <div id="features-container">
             <div class="feature">
                 <h4><span class="icon-pull"></span>Long polling</h4>
-                <p>Walrus give you a powerful integrated long polling system,
+                <p><strong>Walrus</strong> give you a powerful integrated long polling system,
                    that you can set up and use with only 1 line of PHP code !
                    Yes, black magic exist.</p>
             </div>
@@ -29,7 +29,7 @@
             </div>
             <div class="feature">
                 <h4><span class="icon-template"></span>Smarty/HAML templating</h4>
-                <p>Walrus support three templating language, HAML for rubyist, Smarty
+                <p><strong>Walrus</strong> support three templating language, HAML for rubyist, Smarty
                    for the lovers, and for sure, PHP, obviously the faster templating
                    language in PHP</p>
             </div>
@@ -48,19 +48,19 @@
             </div>
             <div class="feature">
                 <h4><span class="icon-cli"></span>CLI tools</h4>
-                <p>The Walrus CLI tool give you the power of creating your own controller,
+                <p>The <strong>Walrus</strong> CLI tool give you the power of creating your own controller,
                    API controller and models with just a magic one line command</p>
             </div>
             <div class="feature">
                 <h4><span class="icon-role"></span>Simple ACL</h4>
-                <p>With Walrus no need of big secure algorithms, with our ACL system you can
-                   just specify few roles, like routes, templates or
+                <p>With <strong>Walrus</strong> no need of big secure algorithms, with our ACL system you can
+                   just specify few roles, on routes, templates or
                    even skeletons.</p>
             </div>
             <div class="feature last">
                 <h4><span class="icon-file"></span>File manager</h4>
                 <p>You want to create or manage files on your web application ? Just use the
-                   secured and very easy to use Walrus File manager. The file manager have it's
+                   secured and very easy to use <strong>Walrus</strong> File manager. The file manager have it's
                    own log files, how cool is that ?</p>
             </div>
         </div>

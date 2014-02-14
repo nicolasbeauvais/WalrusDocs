@@ -1,8 +1,8 @@
 <h5>CLI (Command Line Interface) a.k.a Tusk</h5>
 
-<p>We added to Walrus a simple tool in order to generate few things that we usually do not like to do
+<p>We added to <strong>Walrus</strong> a simple tool in order to generate few things that we usually do not like to do
    because it is simply repetitive like models and controllers.</p>
-<p>There's only one thing you need in order to use Tusk : be at your root folder. This is simply because Tusk is at the root of Walrus.</p>
+<p>There's only one thing you need in order to use Tusk : be at your root folder. This is simply because Tusk is at the root of <strong>Walrus</strong>.</p>
 
 <h6>Let's create a model !</h6>
 

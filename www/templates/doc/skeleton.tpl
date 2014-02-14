@@ -1,7 +1,7 @@
 <h5>Skeleton</h5>
 
 <p>
-    Skeleton is a cool features from walrus framework intended for front end developer.
+    Skeleton is a cool features from <strong>Walrus</strong> <strong>framework</strong> intended for front end developer.
     You can create your skeleton (which are basically view agregation), in the
     <span class="bold">skeleton</span>.yml file in the <span class="bold">config/</span>
     directory
@@ -21,7 +21,7 @@
             template: "footer/footer"
 </pre>
 
-<p>In this example, walrus will execute those template:</p>
+<p>In this example, <strong>Walrus</strong> will execute those template:</p>
 
 <ul>
     <li>www/templates/header/head.?</li>

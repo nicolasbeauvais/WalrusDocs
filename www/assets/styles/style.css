@@ -132,7 +132,7 @@ body {
     text-transform: uppercase;
     color: #5bcaf5;
     margin-bottom: 30px; }
-  #head h4 {
+  #head p {
     color: #42535a;
     font-size: 24px;
     font-weight: 200;
@@ -161,6 +161,8 @@ body {
     text-align: center;
     padding-top: 75px;
     padding-bottom: 100px; }
+    #features .h2 h2 {
+      display: inline; }
   #features .feature {
     width: 225px;
     display: inline-block;

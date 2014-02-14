@@ -1,7 +1,7 @@
 <h5>Routing</h5>
 
 <p>
-   Walrus use a simple routing system inspired by ROR and Symfony.
+   <strong>Walrus</strong> use a simple routing system inspired by ROR and Symfony.
    All your route must be defined in the routes.yml file, in the
    <span class="bold">config/</span> directory.
 </p>
@@ -59,7 +59,7 @@
 </pre>
 
 <h6>Simple ACL</h6>
-<p>To limit the access of a specific route in a simple way, you can use Walrus ACL system.
+<p>To limit the access of a specific route in a simple way, you can use <strong>Walrus</strong> ACL system.
    In this example we limit the access to user with the <span class="bold">admin</span> role</p>
 
 <pre class="brush: yaml">

@@ -4,20 +4,20 @@
 
 <ul>
     <li><span class="bold">You have the <a href="./required">proper requirements</a> on your machine</span></li>
-    <li><span class="bold">You have the <a href="./installation">properly installed</a> Walrus on your machine</span></li>
+    <li><span class="bold">You have the <a href="./installation">properly installed</a> <strong>Walrus</strong> on your machine</span></li>
 </ul>
 
-<p>After you have done these two simple things, here is what Walrus architecture looks like and what directories are meant to :</p>
+<p>After you have done these two simple things, here is what <strong>Walrus</strong> architecture looks like and what directories are meant to :</p>
 
 <ul>
     <li>
-        <span class="bold">Walrus</span>/ - All the files of WalrusFramework. This is where magic happens and where you should look at when you want to contribute.</li>
+        <span class="bold"><strong>Walrus</strong></span>/ - All the files of <h1 style="display: inline-block">Walrus Framework</h1>. This is where magic happens and where you should look at when you want to contribute.</li>
     <li>
         <span class="bold">config</span>/
 
         <ul>
             <li>
-                <span class="italic">config.yml</span> - This is where all your Framework configs go (database, ...).</li>
+                <span class="italic">config.yml</span> - This is where all your <strong>framework</strong> configs go (database, ...).</li>
             <li>
                 <span class="italic">env.php</span> - All environment variables.</li>
             <li>
@@ -51,7 +51,7 @@
         </ul>
     </li>
     <li>
-        <span class="bold">tusk</span> - Walrus Command Line Interface (CLI).</li>
+        <span class="bold">tusk</span> - <strong>Walrus</strong> Command Line Interface (CLI).</li>
 </ul>
 
 <p>Speaking of CLI (a.k.a Tusk), it is probably the time for you to create some models or controllers in order to begin a project. Rendez-vous

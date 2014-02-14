@@ -1,6 +1,6 @@
 <h5>Installation</h5>
 
-<p>Walrus is available on Github <a href="https://github.com/E-Wok/Walrus">here</a>.</p>
+<p><strong>Walrus</strong> is available on Github <a href="https://github.com/E-Wok/Walrus">here</a>.</p>
 
 <p>Once you have downloaded it, just put it on your server/local server and it will ask you few things.</p>
 

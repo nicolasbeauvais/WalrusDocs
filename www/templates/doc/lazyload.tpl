@@ -1,9 +1,9 @@
 <h5>Lazyload</h5>
 
 <p>
-    Walrus give you the possibility to do lazyload in a very simple way, and so optimise your
+    <strong>Walrus</strong> give you the possibility to do lazyload in a very simple way, and so optimise your
     SEO. <br/>
-    First you need to include Walrus.js to your project: </p>
+    First you need to include <strong>Walrus</strong>.js to your project: </p>
 
 <pre class="brush: php">
     &lt;script src="www/assets/javascript/Walrus.js"&gt;&lt;/script&gt;

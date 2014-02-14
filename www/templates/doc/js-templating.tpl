@@ -1,6 +1,6 @@
 <h5>Templating</h5>
 
-<p>Walrus.js is given with a really lightweight but useful templating language,
+<p><strong>Walrus</strong>.js is given with a really lightweight but useful templating language,
    First you can create a template in html and specify the javascript data you want in it:</p>
 
 {literal}
@@ -11,7 +11,7 @@
 </pre>
 {/literal}
 
-<p>Now to change <span class="bold">name</span> to your javascript variable use the Walrus.compile()
+<p>Now to change <span class="bold">name</span> to your javascript variable use the <strong>Walrus</strong>.compile()
    function like this:</p>
 
 {literal}
