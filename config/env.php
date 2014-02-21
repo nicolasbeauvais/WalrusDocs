@@ -18,7 +18,7 @@ define("ROOT_PATH", substr(dirname(__FILE__), 0, -7) . '/');
 /**
  * const FRONT_PATH, the templates directory, relative to ROOT_PATH.
  */
-define("FRONT_PATH", ROOT_PATH . 'www/templates' . '/');
+define("FRONT_PATH", ROOT_PATH . 'templates' . '/');
 
 define("URL", 'http://localhost/Dropbox/WalrusDocs/');
 define("ASSETS", 'http://localhost/Dropbox/WalrusDocs/www/assets/');

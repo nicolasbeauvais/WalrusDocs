@@ -4,6 +4,6 @@ Walrus.init({
 
 SyntaxHighlighter.all();
 
-$(document).on('pageLoaded', function () {
+Walrus.breadCrumb(function () {
     SyntaxHighlighter.highlight();
 });

@@ -10,8 +10,8 @@
     </div>
 </footer>
 
-<script src="{$smarty.const.ASSETS}javascript/Walrus.js"></script>
 <script src="{$smarty.const.ASSETS}javascript/jquery-2.0.0.min.js"></script>
+<script src="{$smarty.const.ASSETS}javascript/Walrus.js"></script>
 <script src="{$smarty.const.ASSETS}javascript/shCore.js"></script>
 <script src="{$smarty.const.ASSETS}javascript/shBrushJScript.js"></script>
 <script src="{$smarty.const.ASSETS}javascript/shBrushPhp.js"></script>
