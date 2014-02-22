@@ -2,28 +2,29 @@
 
 <div class="container">
     <div id="sidebar">
-        <h4>Basics</h4>
-        <ul>
-            <li><a href="{$smarty.const.URL}doc/required">Required</a></li>
-            <li><a href="{$smarty.const.URL}doc/installation">Installation</a></li>
-            <li><a href="{$smarty.const.URL}doc/getting-started">Getting started</a></li>
-        </ul>
-        <h4>Back-end</h4>
-        <ul>
-            <li><a href="{$smarty.const.URL}doc/routing">Routing</a></li>
-            <li><a href="{$smarty.const.URL}doc/cli">CLI tools</a></li>
-            <li><a href="{$smarty.const.URL}doc/controllers">Controllers</a></li>
-            <li><a href="{$smarty.const.URL}doc/models">Models</a></li>
-            <li><a href="{$smarty.const.URL}doc/api-and-long-polling">API & long polling</a></li>
-        </ul>
-        <h4>Front-end</h4>
-        <ul>
-            <li><a href="{$smarty.const.URL}doc/skeleton">Skeleton</a></li>
-            <li><a href="{$smarty.const.URL}doc/ajax-navigation">AJAX navigation</a></li>
-            <li><a href="{$smarty.const.URL}doc/lazyload">Lazyload</a></li>
-            <li><a href="{$smarty.const.URL}doc/front-long-polling">Long polling</a></li>
-            <li><a href="{$smarty.const.URL}doc/js-templating">Javascript Templating</a></li>
-        </ul>
+
+        <form id="change-version" action="{$smarty.const.URL}api/version/change" method="post">
+            <label for="version">
+                <h1>Walrus</h1>
+            </label>
+            <select name="version" id="version">
+                {foreach $versions as $key => $version}
+                    <option value="{$version}"
+                            {if ($key === "default")}data-key="default" data-url="{$smarty.const.URL}doc"{/if}
+                            {if ($key === "default" && !isset($smarty.session.version))
+                    || isset($smarty.session.version) && $smarty.session.version == $version}
+                    selected{/if}>
+                        v {$version}
+                    </option>
+                {/foreach}
+            </select>
+        </form>
+
+        {if isset($smarty.session.version)}
+            {include file="../version`$smarty.session.version`/doc/doc-menu.tpl"}
+        {else}
+            {include file='../doc/doc-menu.tpl'}
+        {/if}
     </div>
     <div id="doc-content">
         {$documentation}
