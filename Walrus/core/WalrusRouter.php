@@ -170,7 +170,7 @@ class WalrusRouter
     /**
      * Matches the current request against mapped routes
      */
-    public function matchCurrentRequest()
+    private function matchCurrentRequest()
     {
         $checkMethod  = isset($_POST['_method'])
             && ($_method = strtoupper($_POST['_method']))
@@ -253,7 +253,7 @@ class WalrusRouter
     }
 
     /**
-     * Reverse route a named route.
+     * Reverse a named route.
      *
      * @param string $routeName The name of the route to reverse route.
      * @param array $params Optional array of parameters to use in URL.
@@ -284,7 +284,12 @@ class WalrusRouter
                 }
             }
         }
-        return $url;
+
+
+        return array(
+            'url' => $url,
+            'route' => $route
+        );
     }
 
     /**
@@ -296,14 +301,35 @@ class WalrusRouter
     {
         $route = $this->matchCurrentRequest();
         if (!$route) {
-            $url = isset($_GET['url']) ? $_GET['url'] : '/';
-            throw new Exception('[WalrusRouting] undefined route: ' . $url);
+            // try to find a default route
+            foreach ($this->routes as $defaultRoute) {
+                if ($defaultRoute->getName()  == '_404') {
+                    $route = $defaultRoute;
+                }
+            }
+
+            if (!$route) {
+                $url = isset($_GET['url']) ? $_GET['url'] : '/';
+                throw new Exception('[WalrusRouting] undefined route: ' . $url);
+            }
         }
 
         if ($route->getAcl() && (!isset($_SESSION['acl']) || $route->getAcl() != $_SESSION['acl'])) {
-            header("Status: 403 Forbidden");
-            header('HTTP/1.0 403 Forbidden');
-            die();
+
+            $route = null;
+
+            foreach ($this->routes as $defaultRoute) {
+                if ($defaultRoute->getName()  == '_403' && !$defaultRoute->getAcl()
+                    || (isset($_SESSION['acl']) && $defaultRoute->getAcl() === $_SESSION['acl'])) {
+                    $route = $defaultRoute;
+                }
+            }
+
+            if (!$route) {
+                header("Status: 403 Forbidden");
+                header('HTTP/1.0 403 Forbidden');
+                die();
+            }
         }
 
         $cb = explode(':', $route->getTarget());
@@ -464,7 +490,7 @@ class WalrusRouter
 
         foreach ($routes as $name => $route) {
 
-            $path = isset($route['path']) ? $route['path'] : '/';
+            $path = isset($route['path']) && !empty($route['path']) ? $route['path'] : '/';
             $controller = isset($route['controller']) ? $route['controller'] : '';
             $action = isset($route['action']) ? $route['action'] : '';
 

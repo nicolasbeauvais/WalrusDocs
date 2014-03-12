@@ -2,31 +2,27 @@
 
 /**
  * Walrus Framework
- * File maintened by: Guillaume Flambard
- * Created: 20:46 15/01/14
+ * File maintened by: Nicolas Beauvais
+ * Created: 08:07 04/03/14
  */
+ 
 
 namespace Walrus\core;
 
 use Exception;
-
+use Walrus\core\WalrusMonitoring;
 
 /**
  * Class WalrusException
- * @package Walrus\core
+ * @package Walrus\core\objects
  */
 class WalrusException extends Exception
 {
-    // @TODO: refactor
-
     /**
-     * WalrusException format the exception and insert it in the log file.
+     * Handle a WalrusException to display it in the exception debuger
      */
-    public function errorHandler()
+    public function handle()
     {
-        $errorInfo= "\n" . date('H:i:s d/m/Y')." | [line] -> " . $this->line . " | [class] -> "
-            . str_replace('.php', '', basename($this->file)) . " | [Error] -> \"" . $this->message . "\"";
-        $logPath = __DIR__."/../../log.txt";
-        file_put_contents($logPath, $errorInfo, FILE_APPEND | LOCK_EX);
+        WalrusMonitoring::exceptionCatcher($this);
     }
 }

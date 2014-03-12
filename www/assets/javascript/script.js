@@ -18,7 +18,9 @@ function init() {
         if (isDefault == 'default') {
             window.location = $(this).find(':selected').data('url');
         } else {
-            window.location = window.location + '/' + version;
+            console.log(window.location);
+            version = window.location.href.indexOf('/') > -1 ? '/' + version : version;
+            window.location = window.location + version;
         }
     });
 }

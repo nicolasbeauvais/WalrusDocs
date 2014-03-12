@@ -12,7 +12,7 @@ class HomeController extends WalrusFrontController
 {
 
     private $versions = array(
-        '1.0.1b',
+        '1.1.0b',
         'default' => '1.0.0'
     );
 

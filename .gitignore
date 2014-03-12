@@ -3,10 +3,10 @@
 Thumbs.db
 
 #vendors
-www/templates_c/
+templates_c/
 
 #Walrus
-log.txt
+logs/
 config/config.yml
 
 # Software
@@ -16,6 +16,7 @@ config/config.yml
 node_modules/
 Gruntfile.js
 package.json
+phpunit.phar
 
 # IDEs
 .buildpath

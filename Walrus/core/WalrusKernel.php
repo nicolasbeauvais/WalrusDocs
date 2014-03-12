@@ -44,6 +44,9 @@ class WalrusKernel
         if ($config = WalrusKernel::bootstrapConfig()) {
             WalrusKernel::bootstrapOrm();
         }
+
+        new WalrusMonitoring();
+
         return $config;
     }
 
@@ -58,7 +61,7 @@ class WalrusKernel
             $_ENV['W']['password']
         );
 
-        if ($_ENV['W']['environment'] == "prod") {
+        if ($_ENV['W']['environment'] == "production") {
             R::freeze(true);
         }
     }

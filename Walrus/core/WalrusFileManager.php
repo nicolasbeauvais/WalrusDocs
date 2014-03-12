@@ -55,8 +55,8 @@ class WalrusFileManager
             throw new Exception('"' . $root . '" isn\'t a valid folder path');
         }
 
-        if ($root[strlen($root) - 1] !== '/') {
-            $root .= '/';
+        if ($root[strlen($root) - 1] !== '/' && $root[strlen($root) - 1] !== '\\') {
+            $root .= DIRECTORY_SEPARATOR;
         }
 
         $this->root = $root;
@@ -76,12 +76,13 @@ class WalrusFileManager
      */
     private function makePath ($path, $type = 'root', $needToExist = true)
     {
-        if (!empty($path) && $path[0] == '/') {
+        if (!empty($path) && ($path[0] == '/' || $path[0] == '\\')) {
             $path = substr($path, 1, strlen($path));
         }
 
-        if (!empty($path) && $path[strlen($path) - 1] !== '/' && is_dir($this->root . $path)) {
-            $path .= '/';
+        if (!empty($path) && ($path[strlen($path) - 1] !== '/' || $path[strlen($path) - 1] !== '\\')
+            && is_dir($this->root . $path)) {
+            $path .= DIRECTORY_SEPARATOR;
         }
 
         if ($type === 'root') {
@@ -116,6 +117,16 @@ class WalrusFileManager
     }
 
     /**
+     * Return the current element path.
+     *
+     * This function should be used for debug only, as the other function never required a full path.
+     */
+    public function getCurrentElem ()
+    {
+        return $this->currentElem;
+    }
+
+    /**
      * Return an array with the info of the current file.
      * Infos are:
      * filesize -> in date format
@@ -127,6 +138,8 @@ class WalrusFileManager
      */
     public function fileDetails ()
     {
+        clearstatcache(true, $this->currentElem);
+
         $fileInfo['fileSize'] = $this->fmFilesize($this->currentElem);
         $fileInfo['name'] = $this->fmBasename($this->currentElem);
         $fileInfo['path'] = $this->currentElem;
@@ -198,8 +211,8 @@ class WalrusFileManager
     public function moveCurrent ($newPath)
     {
 
-        if (!empty($newPath) && $newPath[strlen($newPath)- 1] !== '/') {
-            $newPath .= '/';
+        if (!empty($newPath) && ($newPath[strlen($newPath)- 1] !== '/' || $newPath[strlen($newPath)- 1] !== '\\')) {
+            $newPath .= DIRECTORY_SEPARATOR;
         }
 
         $fileDetails = $this->fileDetails();
@@ -326,6 +339,7 @@ class WalrusFileManager
             }
         }
 
+        $this->setCurrentElem('');
         $this->addLog('Current folder as been emptied');
     }
 
@@ -418,20 +432,46 @@ class WalrusFileManager
      *
      * The currentElem must be a valid file to read.
      *
-     * @return string
+     * @param string $type set type to 'array' for a return as an array
+     * @param int $start first line to return
+     * @param int @end last line to return
+     *
+     * @return string|array
      * @throws Exception if the currentElem isn't a file
      */
-    public function getFileContent ()
+    public function getFileContent ($type = null, $start = null, $end = null)
     {
+        clearstatcache(true, $this->currentElem);
+
         if (!is_file($this->currentElem)) {
             throw new Exception('"' . $this->currentElem . '" need to be a file');
         }
 
-        $stream = $this->fmFopen($this->currentElem, "rb");
-        $size = $this->fmFilesize($this->currentElem) ?: 1;
+        if (!$start && !$end && !$type) {
+            $stream = $this->fmFopen($this->currentElem, "rb");
+            $size = $this->fmFilesize($this->currentElem) ?: 1;
 
-        $content = $this->fmFread($stream, $size);
-        $this->fmFclose($stream);
+            $content = $this->fmFread($stream, $size);
+            $this->fmFclose($stream);
+        } else {
+            $content = $type == 'array' ? array() : '';
+            $file = $this->fmFile($this->currentElem);
+
+            if ($start && $end) {
+                foreach ($file as $key => $line) {
+                    if ($key > $start && $key < $end) {
+                        if ($type == 'array') {
+                            $content[] = $line;
+                        } else {
+                            $content .= $line;
+                        }
+                    }
+                }
+            } else {
+                $content = $file;
+            }
+
+        }
 
         $this->addLog('File "' . $this->currentElem . '" as been readed');
         return $content;
@@ -538,7 +578,7 @@ class WalrusFileManager
             throw new Exception('"file: ' . $path . ' didn\'t exist"');
         }
 
-        $fileSize = date(filesize($path));
+        $fileSize = filesize($path);
 
         if (!is_numeric($fileSize)) {
             throw new Exception('"An error occurred when tried to get filesize for file: ' . $path . '"');
@@ -784,6 +824,25 @@ class WalrusFileManager
         }
 
         return $fopen;
+    }
+
+    /**
+     * Handler function
+     *
+     * @param $path
+     *
+     * @return array
+     * @throws Exception
+     */
+    private function fmFile ($path)
+    {
+        $file = file($path);
+
+        if (!$file) {
+            throw new Exception('An error occurred when tried to read the file');
+        }
+
+        return $file;
     }
 
     /**

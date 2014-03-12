@@ -1,10 +1,10 @@
 <nav id="menu">
     <div class="container">
-        <a href="/"><img src="{$smarty.const.ASSETS}images/logo.png" alt=""/></a>
+        <a href="/"><img src="{$_ENV['W']['base_url']}assets/images/logo.png" alt=""/></a>
         <ul>
-            <li><a href="{$smarty.const.URL}">Welcome</a></li>
-            <li><a href="{$smarty.const.URL}doc">Documentation</a></li>
-            <!-- <li><a href="{$smarty.const.URL}">API</a></li> -->
+            <li><a href="{$_ENV['W']['base_url']}">Welcome</a></li>
+            <li><a href="{$_ENV['W']['base_url']}doc">Documentation</a></li>
+            <!-- <li><a href="{$_ENV['W']['base_url']}">API</a></li> -->
             <li><a href="https://github.com/E-Wok/Walrus/" target="_blank">GitHub</a></li>
         </ul>
     </div>

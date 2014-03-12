@@ -24,8 +24,15 @@ class WalrusAutoload
         'Walrus/controllers/',
         'Walrus/models/',
         'Walrus/core/',
-        'Walrus/core/objects',
+        'Walrus/core/objects/',
         'vendor/',
+    );
+
+    /**
+     * Class path for known vendors
+     */
+    private static $classesKnown = array(
+        'R' => 'vendor/RedBean/rb'
     );
 
     /**
@@ -53,6 +60,11 @@ class WalrusAutoload
             include_once($path);
             return true;
         } else {
+
+            if (array_key_exists($class_with_namespace, self::$classesKnown)) {
+                include_once( ROOT_PATH . self::$classesKnown[$class_with_namespace] . '.php');
+                return true;
+            }
 
             if (!strrpos($class_with_namespace, "\\")) {
                 $class_with_namespace = $class_with_namespace . '\\' . $class_with_namespace;

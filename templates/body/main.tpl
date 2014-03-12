@@ -6,7 +6,7 @@
         <p>Certainly not that big whatever factory.</p>
         <div id="head-links">
             <a href="https://github.com/E-Wok/Walrus" target="_blank">GitHub</a>
-            <a href="{$smarty.const.URL}doc">Documentation</a>
+            <a href="{$_ENV['W']['base_url']}doc">Documentation</a>
         </div>
     </div>
 </div>
