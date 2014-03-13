@@ -20,8 +20,8 @@
             </select>
         </form>
 
-        {if isset($smarty.session.version)}
-            {include file="../version`$smarty.session.version`/doc/doc-menu.tpl"}
+        {if !$isDefault}
+            {include file="../version/`$smarty.session.version`/doc/doc-menu.tpl"}
         {else}
             {include file='../doc/doc-menu.tpl'}
         {/if}
