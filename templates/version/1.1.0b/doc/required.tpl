@@ -1,14 +1,14 @@
 <h5>Required</h5>
 
-<p><strong>Walrus</strong> can work with different PHP versions.</p>
-<p>If you want all the <strong>Walrus</strong> features, you definitely want to use PHP 5.4.4 or higher. Why this requirement ?
+<p><strong>Walrus Framework</strong> can work with different PHP versions.</p>
+<p>If you want all the <strong>Walrus Framework</strong> features, you definitely want to use PHP 5.4.4 or higher. Why this requirement ?
    Basically because <strong>Walrus</strong> long polling methods are using PHP SessionHandlerInterface.</p>
 <p>You still can use PHP 5.3.3 but you will not be able to user <strong>Walrus</strong> long polling methods.</p>
 
 
 <h6>ORM</h6>
 
-<p><strong>Walrus</strong> is using <a href="http://redbeanphp.com/">RedBean ORM</a>. RedBean works with :
+<p><strong>Walrus Framework</strong> is using <a href="http://redbeanphp.com/">RedBean ORM</a>. RedBean works with :
 </p>
 <ul>
     <li>MySQL 5 and higher</li>

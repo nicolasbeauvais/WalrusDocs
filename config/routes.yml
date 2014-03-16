@@ -15,4 +15,4 @@ _doc:
             doc: '[\w-]+'
         default:
             version: false
-            doc: 'required'
+            doc: false
