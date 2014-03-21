@@ -3,8 +3,8 @@
 <p>Before you get started, check that two things :</p>
 
 <ul>
-    <li><span class="bold">You have the <a href="./required">proper requirements</a> on your machine</span></li>
-    <li><span class="bold">You have the <a href="./installation">properly installed</a> <strong>Walrus</strong> on your machine</span></li>
+    <li><span class="bold">You have the <a href="{$url}required">proper requirements</a> on your machine</span></li>
+    <li><span class="bold">You have the <a href="{$url}installation">properly installed</a> <strong>Walrus</strong> on your machine</span></li>
 </ul>
 
 <p>After you have done these two simple things, here is what <strong>Walrus</strong> architecture looks like and what directories are meant to :</p>
@@ -55,4 +55,4 @@
 </ul>
 
 <p>Speaking of CLI (a.k.a Tusk), it is probably the time for you to create some models or controllers in order to begin a project. Rendez-vous
-    <a href="./cli" class="bold">here</a> in order to see how to use Tusk.</p>
+    <a href="{$url}cli" class="bold">here</a> in order to see how to use Tusk.</p>
