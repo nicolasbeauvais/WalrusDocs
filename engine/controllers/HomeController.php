@@ -28,6 +28,7 @@ class HomeController extends WalrusFrontController
         $_SESSION['version'] = $version;
         $isDefault = $this->versions['default'] === $_SESSION['version'];
         $doc = $doc ?: ($version == '1.0.0' ? 'required' : 'change-log');
+        $url = $_ENV['W']['base_url'] . 'doc/' . ($isDefault ? '' : $version . '/');
 
         // meta vars
         $description = $this->getSoft('home', 'loadMeta', array($doc, $isDefault));
@@ -36,12 +37,12 @@ class HomeController extends WalrusFrontController
 
         // view
         $this->skeleton('_skeleton_doc');
-        $documentation = $this->getSoft('home', 'loadDoc', array($doc, $isDefault));
+        $documentation = $this->getSoft('home', 'loadDoc', array($doc, $isDefault, $url));
 
         // content vars
         $this->register('documentation', $documentation);
         $this->register('isDefault', $isDefault);
-        $this->register('url', $_ENV['W']['base_url'] . 'doc/' . $version . '/');
+        $this->register('url', $url);
         $this->register('versions', $this->versions);
 
     }
@@ -56,8 +57,10 @@ class HomeController extends WalrusFrontController
         }
     }
 
-    public function loadDoc($doc, $isDefault)
+    public function loadDoc($doc, $isDefault, $url)
     {
+        $this->register('url', $url);
+
         if ($isDefault) {
             $this->setView('/doc/' . $doc);
         } else {
