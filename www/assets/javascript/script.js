@@ -14,7 +14,7 @@ function init() {
         var version = $(this).find(':selected').val();
         var pos = window.location.href.indexOf('/doc');
         var url = window.location.href.substr(0, pos + 4);
-        window.location = url + '/' + version;
+        Walrus.go(url + '/' + version);
     });
 }
 
