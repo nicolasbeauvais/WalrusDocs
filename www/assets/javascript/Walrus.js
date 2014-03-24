@@ -34,25 +34,59 @@ var Walrus = {};
         if (!config.ajaxNavigation) {config.ajaxNavigation = false; }
         if (!config.pageContainer) {config.pageContainer = 'container'; }
         if (!config.lazyLoad) {config.lazyLoad = false; }
-        Walrus.config = config;
+        if (!config.nolink) {config.nolink = false; }
 
-        if (Walrus.config.ajaxNavigation) { Walrus.ajaxNavigationInit(); }
+        Walrus.config = config;
 
         Walrus.bootstrap();
     };
 
-    Walrus.bootstrap = function () {
-        if (Walrus.config.lazyLoad) { Walrus.checkLazy(); }
+    Walrus.uload = function () {
+        Walrus.bootstrapUload();
     };
 
-    Walrus.ajaxNavigationInit = function () {
-
-        $(document).click(Walrus.catchLinks);
-        $(window).on("popstate", function (event) {
+    Walrus.bootstrap = function () {
+        if (Walrus.config.ajaxNavigation) { Walrus.ajaxNavigationInit(); }
+        if (Walrus.config.nolink) { Walrus.nolinkInit(); }
+        if (Walrus.config.lazyLoad) { Walrus.checkLazy(); }
+        $(window).on("popstate.WALRUS-popstate", function (event) {
             if (event.originalEvent.state !== null) {
                 Walrus.ajaxNavigation(event, location.href, true);
             }
         });
+    };
+
+    Walrus.bootstrapUload = function () {
+        $(window).off("popstate.WALRUS-popstate");
+        $(document).off('click.WALRUS-ajaxnavigation');
+        $('body').find('[data-nolink]').off('click.WALRUS-nolink');
+    };
+
+    Walrus.ajaxNavigationInit = function () {
+        $(document).on('click.WALRUS-ajaxnavigation', Walrus.catchLinks);
+    };
+
+    Walrus.nolinkInit = function () {
+        $('body').find('[data-nolink]').on('click.WALRUS-nolink', function (event) {
+            if (Walrus.isntExternal(atob($(this).data('nolink')))) {
+                Walrus.ajaxNavigation(event, atob($(this).data('nolink')));
+                event.stopPropagation();
+                event.preventDefault();
+            } else {
+                location.href = atob($(this).data('nolink'));
+            }
+        });
+    };
+
+    /**
+     * Launch the ajaxNavigation script with the specified url
+     *
+     * @param url the url to call
+     * @param isBack if specified use the historic to go back
+     * @param callback a callback executed at the end of the ajax request
+     */
+    Walrus.go = function (url, isBack, callback) {
+        Walrus.ajaxNavigation(null, url, isBack, callback);
     };
 
     /**
@@ -99,8 +133,10 @@ var Walrus = {};
      *
      * @param event
      * @param url
+     * @param back
+     * @param callback
      */
-    Walrus.ajaxNavigation = function (event, url, back) {
+    Walrus.ajaxNavigation = function (event, url, back, callback) {
 
         $.ajax({
             url: url,
@@ -131,10 +167,12 @@ var Walrus = {};
                 document.title = $data.find('title:first').text();
 
                 // breadcrumb
-                if (Walrus.ajaxNavigationCallback) {Walrus.ajaxNavigationCallback(bread); }
+                if (Walrus.ajaxNavigationCallback) { Walrus.ajaxNavigationCallback(bread); }
 
-                Walrus.bootstrap();
-                event.preventDefault();
+                // callback
+                if (callback) { callback(); }
+
+                if (event) { event.preventDefault(); }
             } else {
                 window.location = url;
             }
