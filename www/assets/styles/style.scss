@@ -26,6 +26,7 @@ $font-menu: #42535a;
 $font-blue: #5bcaf5;
 $font-light: #828689;
 $font-footer: #abb8be;
+$font-green: #40bd4b;
 
 /* Icon font */
 [class^="icon-"], [class*=" icon-"] {
@@ -300,6 +301,9 @@ body {
   .italic {
     font-style: italic;
   }
+  .new {
+    color: $font-green;
+  }
   ul {
     padding: 20px 0 20px 20px;
     list-style: circle;
@@ -315,5 +319,18 @@ body {
   a {
     text-decoration: underline;
     color: $font-menu;
+  }
+  #changelog {
+    p.title {
+      border-bottom: 2px solid #D8E0E2;
+      border-left: 2px solid #D8E0E2;
+      font-weight: 600;
+      font-size: 30px;
+      color: $font-menu;
+      padding-bottom: 10px;
+      padding-top: 10px;
+      text-indent: 10px;
+      margin-bottom: 30px;
+    }
   }
 }

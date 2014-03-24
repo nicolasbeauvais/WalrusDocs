@@ -11,8 +11,8 @@ use Walrus\core\WalrusFrontController as WalrusFrontController;
 class HomeController extends WalrusFrontController
 {
     private $versions = array(
-        '1.1.0b',
-        'default' => '1.0.0'
+        '1.0.0b',
+        'default' => '0.9.0b'
     );
 
     public function run()
@@ -27,7 +27,7 @@ class HomeController extends WalrusFrontController
         $version = $version && in_array($version, $this->versions) ? $version : $this->versions['default'];
         $_SESSION['version'] = $version;
         $isDefault = $this->versions['default'] === $_SESSION['version'];
-        $doc = $doc ?: ($version == '1.0.0' ? 'required' : 'change-log');
+        $doc = $doc ?: ($version == $this->versions['default'] ? 'required' : 'change-log');
         $url = $_ENV['W']['base_url'] . 'doc/' . ($isDefault ? '' : $version . '/');
 
         // meta vars
