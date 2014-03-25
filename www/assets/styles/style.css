@@ -281,6 +281,11 @@ body {
     list-style: circle; }
     #doc-content ul li {
       line-height: 20px; }
+      #doc-content ul li span.ul-title {
+        font-weight: 600;
+        color: #42535a; }
+        #doc-content ul li span.ul-title:after {
+          content: ':'; }
   #doc-content .syntaxhighlighter {
     overflow-y: hidden !important;
     overflow-x: auto !important;

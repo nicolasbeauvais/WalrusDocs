@@ -11,8 +11,7 @@
                 {foreach $versions as $key => $version}
                     <option value="{$version}"
                             {if ($key === "default")}data-key="default" data-url="{$_ENV['W']['base_url']}doc"{/if}
-                            {if ($key === "default" && !isset($smarty.session.version))
-                    || isset($smarty.session.version) && $smarty.session.version == $version}
+                            {if ($key === "default") && isset($current_version) && $current_version == $version}
                     selected{/if}>
                         v {$version}
                     </option>
@@ -21,7 +20,7 @@
         </form>
 
         {if !$isDefault}
-            {include file="../version/`$smarty.session.version`/doc/doc-menu.tpl"}
+            {include file="../version/`$current_version`/doc/doc-menu.tpl"}
         {else}
             {include file='../doc/doc-menu.tpl'}
         {/if}

@@ -309,6 +309,13 @@ body {
     list-style: circle;
     li {
       line-height: 20px;
+      span.ul-title {
+        font-weight: 600;
+        color: $font-menu;
+        &:after {
+          content: ':';
+        }
+      }
     }
   }
   .syntaxhighlighter {

@@ -24,7 +24,7 @@ use Exception;
 class WalrusFrontController
 {
     /**
-     * All requested templated as a stack.
+     * All requested template as a stack.
      * @var array
      */
     private static $templates = array();
