@@ -1,7 +1,7 @@
 <h5>Create a new Controllers</h5>
 
 <p>
-   You can create a new controller with the <a href="./doc/cli"><strong>Walrus</strong> CLI</a>, or create it yourself with
+   You can create a new controller with the <a href="/doc/cli"><strong>Walrus</strong> CLI</a>, or create it yourself with
    this basic syntax:
 </p>
 

@@ -2,7 +2,7 @@
 
 <h6>Get started</h6>
 
-<p>Before we talk about models, keep in mind that you can generate your model via <a href="./cli">CLI (Tusk)</a>.</p>
+<p>Before we talk about models, keep in mind that you can generate your model via <a href="/cli">CLI (Tusk)</a>.</p>
 
 <pre class="brush: php">
     php tusk createModel controller_name
