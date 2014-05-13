@@ -114,7 +114,7 @@
         position: relative;
         margin: 20px 0;
     }
-    .input._url {
+    .input._base_url {
         margin-top: 0;
     }
     .input._check {
@@ -289,7 +289,7 @@
         rTXHymQc7L/OmCdLMutsVRmZSyV8Vcb33hr3ZwejAL8s5IfgiODjsC+4MrJLDql93LV9mwvWZbX3txy0/qZ3DGRruVyeeLZ73/buviHgYtALgL5P
         wHy7wEAxX+9esnqEs4AAAAASUVORK5CYII=" />
     <h1>Walrus Framework</h1>
-    <p class="version"><?php echo WALRUS_VERSION; ?></p>
+    <p class="version"><?php echo $_ENV['W']['VERSION']; ?></p>
     <div style="clear:both"></div>
 </header>
 
@@ -343,32 +343,39 @@
                     || !isset($post['RDBMS'])) { echo '_selected';} ?>">
                     <i></i> MySql
                 </div>
-                <div class="case <?php if(isset($post['RDBMS']) && $post['RDBMS'] == 'sqllite') { echo '_selected';} ?>">
+                <div class="case <?php if(isset($post['RDBMS']) && $post['RDBMS'] == 'sqllite') {
+                    echo '_selected';} ?>">
                     <i></i>SQLite
                 </div>
-                <div class="case <?php if(isset($post['RDBMS']) && $post['RDBMS'] == 'postgresql') { echo '_selected';} ?>">
+                <div class="case <?php if(isset($post['RDBMS']) && $post['RDBMS'] == 'postgresql') {
+                    echo '_selected';} ?>">
                     <i></i>PostgreSQL
                 </div>
-                <div class="case <?php if(isset($post['RDBMS']) && $post['RDBMS'] == 'cubrid') { echo '_selected';} ?>">
+                <div class="case <?php if(isset($post['RDBMS']) && $post['RDBMS'] == 'cubrid') {
+                    echo '_selected';} ?>">
                     <i></i>CUBRID
                 </div>
             </div>
 
             <div class="input">
-                <label for="hostname">Hostname</label>
-                <input type="text" id="hostname" name="hostname" value="<?php echo $post['hostname']; ?>"/>
+                <label for="host">Hostname</label>
+                <input type="text" id="host" name="host"
+                       value="<?php echo isset($post['host']) ? $post['host'] : ''; ?>"/>
             </div>
             <div class="input">
-                <label for="databasename">Database name</label>
-                <input type="text" id="databasename" name="databasename" value="<?php echo $post['databasename']; ?>"/>
+                <label for="database">Database name</label>
+                <input type="text" id="database" name="database"
+                       value="<?php echo isset($post['database']) ? $post['database'] : ''; ?>"/>
             </div>
             <div class="input">
-                <label for="user">User</label>
-                <input type="text" id="user" name="user" value="<?php echo $post['user']; ?>"/>
+                <label for="name">User</label>
+                <input type="text" id="name" name="name"
+                       value="<?php echo isset($post['name']) ? $post['name'] : ''; ?>"/>
             </div>
             <div class="input">
                 <label for="password">Password</label>
-                <input type="password" id="password" name="password" value="<?php echo $post['password']; ?>"/>
+                <input type="password" id="password" name="password"
+                       value="<?php echo isset($post['password']) ? $post['password'] : ''; ?>"/>
             </div>
 
             <div class="input _check">
@@ -378,11 +385,11 @@
             </div>
         </div>
 
-        <label for="url" class="title">Base Url:</label>
-        <div class="input _url">
-            <label for="url">Base url</label>
-            <input type="text" id="url" name="url" value="<?php echo isset($post['url']) ?
-                $post['url'] : "http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']; ?>"/>
+        <label for="base_url" class="title">Base Url:</label>
+        <div class="input _base_url">
+            <label for="base_url">Base url</label>
+            <input type="text" id="base_url" name="base_url" value="<?php echo isset($post['base_url']) ?
+                $post['base_url'] : "http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']; ?>"/>
         </div>
 
         <div class="left">
@@ -426,7 +433,7 @@
 </div>
 
 <script>
-    <?php require_once(ROOT_PATH . 'Walrus/templates/scripts/jquery.js') ?>
+    <?php require_once($_ENV['W']['ROOT_PATH'] . 'Walrus/templates/scripts/jquery.js') ?>
 
     $('.case_container .case').click(function () {
         var $parent = $(this).parent();
@@ -441,9 +448,9 @@
         var data = {
             check: true,
             RDBMS: $('#rdbms').find('input:first').val(),
-            hostname: $('#database').find('#hostname').val(),
-            databasename: $('#database').find('#databasename').val(),
-            user: $('#database').find('#user').val(),
+            host: $('#database').find('#host').val(),
+            database: $('#database').find('#database').val(),
+            name: $('#database').find('#name').val(),
             password: $('#database').find('#password').val()
         }
         $.post('./', data, 'json').done(function (data) {

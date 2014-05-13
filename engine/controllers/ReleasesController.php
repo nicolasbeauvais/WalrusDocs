@@ -2,9 +2,9 @@
 
 namespace engine\controllers;
 
-use Walrus\core\WalrusFrontController;
+use Walrus\core\WalrusController;
 
-class ReleasesController extends WalrusFrontController
+class ReleasesController extends WalrusController
 {
 
     public function run()

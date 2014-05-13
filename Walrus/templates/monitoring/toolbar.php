@@ -69,13 +69,23 @@ html {
     text-align: center;
     line-height: 50px;
 }
-#WALRUS-toolbar #WALRUS-executionTime {
+#WALRUS-toolbar #WALRUS-executionTime, #WALRUS-toolbar #WALRUS-compiledFiles {
     color: #fff;
     display: inline-block;
     line-height: 50px;
     text-align: center;
     padding: 0 15px;
 }
+
+#WALRUS-toolbar #WALRUS-compiledFiles {
+    border-left: 1px solid #1a1a1a;
+    -webkit-box-shadow: -1px 0 0 #2a2a2a;
+    -moz-box-shadow: -1px 0 0 #2a2a2a;
+    -o-box-shadow: -1px 0 0 #2a2a2a;
+    -ms-box-shadow: -1px 0 0 #2a2a2a;
+    box-shadow: -1px 0 0 #2a2a2a;
+}
+
 #WALRUS-toolbar #WALRUS-http-code {
     display: inline-block;
     padding: 15px;
@@ -107,15 +117,15 @@ html {
 
 <?php
 if ($e2nb > 0) {
-    require_once(ROOT_PATH . 'Walrus/templates/monitoring/e2.php');
+    require_once($_ENV['W']['ROOT_PATH'] . 'Walrus/templates/monitoring/e2.php');
 }
 ?>
 
 <!-- TOOLBAR -->
 <div id="WALRUS-toolbar">
     <div id="WALRUS-logo">
-        <a href="http://www.walrus-framework.com/doc/<?php echo WALRUS_VERSION; ?>"
-           title="Walrus v<?php echo WALRUS_VERSION; ?> documentation">
+        <a href="http://www.walrus-framework.com/doc/<?php echo $_ENV['W']['VERSION']; ?>"
+           title="Walrus v<?php echo $_ENV['W']['VERSION']; ?> documentation">
         <img alt="" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYA
         AAAIGNIUk0AAHolAACAgwAA9CUAAITRAABtXwAA6GwAADyLAAAbWIPnB3gAAAoCSURBVHja7JprcFTlGcd/e87e9+wl2SQQEmQBR0BsXTxeplYlV
         GwdeyF2Rtt+UEFndHSqrR/sOGPHQqf3Tgeno71XQqdWWwqClRZHWreKCuKBpdyjSRbIfbO7Z+/Xc7YfsgmGbEJIop22vDPvl32ffff5n+d5/s/lr
@@ -152,16 +162,12 @@ if ($e2nb > 0) {
         </a>
     </div>
 
-    <?php
-    if ($e2nb > 0) {
-        ?>
+    <?php if ($e2nb > 0): ?>
         <div id="WALRUS-alert">
             <i>!</i>
             <?php echo $e2nb; ?>
         </div>
-    <?php
-    }
-    ?>
+    <?php endif; ?>
 
     <div id="WALRUS-http-code">
         <span class="<?php echo $http_code === 200 ? 'green' : ($http_code >= 500 ? 'red' : 'orange');?>">
@@ -172,6 +178,12 @@ if ($e2nb > 0) {
     <div id="WALRUS-executionTime">
         <?php echo $executionTime . 'ms'; ?>
     </div>
+
+    <?php if ($_ENV['W']['development']['nb_file_compiled'] > 0): ?>
+        <div id="WALRUS-compiledFiles">
+            <?php echo $_ENV['W']['development']['nb_file_compiled']; ?> compiled files
+        </div>
+    <?php endif; ?>
 </div>
 <!-- TOOLBAR -->
 

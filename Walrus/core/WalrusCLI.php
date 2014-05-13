@@ -8,7 +8,7 @@
 
 namespace Walrus\core;
 
-use Exception;
+use Walrus\core\WalrusException;
 
 /**
  * Class WalrusCLI
@@ -21,28 +21,30 @@ class WalrusCLI
      */
     public static function execute()
     {
-        if (count($_SERVER['argv']) == 1) {
+        if (!$_SERVER['argv'][1]) {
             self::help();
-        } elseif (count($_SERVER['argv']) === 3) {
-            $method = $_SERVER['argv'][1];
+        }
+        $method = $_SERVER['argv'][1];
+
+        if (isset($_SERVER['argv'][2])) {
             $param = $_SERVER['argv'][2];
+        }
 
-            switch ($method) {
-                case 'createController':
-                    self::createController($param);
-                    break;
-                case 'createAPIController':
-                    self::createAPIController($param);
-                    break;
-                case 'createModel':
-                    self::createModel($param);
-                    break;
-                default:
-                    self::help();
-            }
-
-        } else {
-            self::help();
+        switch ($method) {
+            case 'createController':
+                self::createController($param);
+                break;
+            case 'createAPIController':
+                self::createAPIController($param);
+                break;
+            case 'createModel':
+                self::createModel($param);
+                break;
+            case 'deploy':
+                self::deploy();
+                break;
+            default:
+                self::help();
         }
     }
 
@@ -79,9 +81,9 @@ class WalrusCLI
         }
 
         $name = ucwords(strtolower($name));
-        $filer = new WalrusFileManager(ROOT_PATH);
+        $filer = new WalrusFileManager($_ENV['W']['ROOT_PATH']);
 
-        if (!file_exists(ROOT_PATH . 'engine/controllers/' . $name . 'Controller.php')) {
+        if (!file_exists($_ENV['W']['ROOT_PATH'] . 'engine/controllers/' . $name . 'Controller.php')) {
 
             try {
                 $filer->setCurrentElem('Walrus/core/sample/controller.sample');
@@ -93,7 +95,7 @@ class WalrusCLI
                 $filer->setCurrentElem('engine/controllers/' . $name . 'Controller.php');
                 $filer->changeFileContent($controller);
                 echo 'New controller created in engine/controllers with the name ' . $name . 'Controller.php' . "\n";
-            } catch (Exception $e) {
+            } catch (WalrusException $e) {
                 echo 'Exception: ' . $e->getMessage() . "\n";
                 return;
             }
@@ -101,7 +103,7 @@ class WalrusCLI
             echo $name . 'Controller.php already exist' . "\n";
         }
 
-        if (!file_exists(ROOT_PATH . 'templates/' . $name)) {
+        if (!file_exists($_ENV['W']['ROOT_PATH'] . 'templates/' . $name)) {
 
             try {
 
@@ -109,7 +111,7 @@ class WalrusCLI
                 $filer->folderCreate(strtolower($name));
 
                 echo 'New templates directory created in templates with the name ' . $name . "\n";
-            } catch (Exception $e) {
+            } catch (WalrusException $e) {
                 echo 'Exception: ' . $e->getMessage() . "\n";
                 return;
             }
@@ -132,9 +134,9 @@ class WalrusCLI
         }
 
         $name = ucwords(strtolower($name));
-        $filer = new WalrusFileManager(ROOT_PATH);
+        $filer = new WalrusFileManager($_ENV['W']['ROOT_PATH']);
 
-        if (!file_exists(ROOT_PATH . 'engine/api/' . $name . 'Controller.php')) {
+        if (!file_exists($_ENV['W']['ROOT_PATH'] . 'engine/api/' . $name . 'Controller.php')) {
 
             try {
                 $filer->setCurrentElem('Walrus/core/sample/APIController.sample');
@@ -146,7 +148,7 @@ class WalrusCLI
                 $filer->setCurrentElem('engine/api/' . $name . 'Controller.php');
                 $filer->changeFileContent($controller);
                 echo 'New controller created in api/controllers with the name ' . $name . 'Controller.php' . "\n";
-            } catch (Exception $e) {
+            } catch (WalrusException $e) {
                 echo 'Exception: ' . $e->getMessage() . "\n";
                 return;
             }
@@ -168,9 +170,9 @@ class WalrusCLI
             $name = ucfirst($name);
         }
 
-        $filer = new WalrusFileManager(ROOT_PATH);
+        $filer = new WalrusFileManager($_ENV['W']['ROOT_PATH']);
 
-        if (!file_exists(ROOT_PATH . 'engine/models/' . $name . '.php')) {
+        if (!file_exists($_ENV['W']['ROOT_PATH'] . 'engine/models/' . $name . '.php')) {
             try {
                 $filer->setCurrentElem('Walrus/core/sample/model.sample');
                 $model = $filer->getFileContent();
@@ -181,12 +183,140 @@ class WalrusCLI
                 $filer->setCurrentElem('engine/models/' . $name . '.php');
                 $filer->changeFileContent($model);
                 echo 'New model created in engine/models with the name ' . $name . '.php' . "\n";
-            } catch (Exception $e) {
+            } catch (WalrusException $e) {
                 echo 'Exception: ' . $e->getMessage() . "\n";
                 return;
             }
         } else {
             echo $name . '.php already exist' . "\n";
         }
+    }
+
+    /**
+     * Launch a deploy
+     */
+    private static function deploy()
+    {
+        include($_ENV['W']['ROOT_PATH'] . 'config' . DIRECTORY_SEPARATOR . 'deploy.php');
+
+        $startDeploy = microtime(true);
+
+        $filer = new WalrusFileManager($_ENV['W']['ROOT_PATH']);
+
+        echo 'Launch Walrus deploy.' . "\r\n";
+
+        // compile config
+        $startCompile = microtime(true);
+        echo 'Start compiling conf files...  ';
+        WalrusCompile::launch(true);
+        $timeCompile = round((microtime(true) - $startCompile), 2) . 's';
+        echo 'done (' . $timeCompile . ')' . "\r\n";
+
+        // create testing directory
+        if (!file_exists($filer->filerPathJoin('www', 'testing'))) {
+            $startCreateTesting = microtime(true);
+            echo 'Create testing project directory... ';
+
+            $filer->setCurrentElem('www');
+            $filer->folderCreate('testing');
+
+            $filer->setCurrentElem('');
+            $filer->copy('', $filer->pathJoin('www', 'testing'), $_ENV['W']['deploy']['blacklist']);
+        } else {
+            $answer = self::prompt('A testing project as been detected, resume deploy', array('yes', 'no'));
+
+            if ($answer == 'no') {
+                $startCreateTesting = microtime(true);
+                echo 'Create testing project directory... ';
+
+                $filer->setCurrentElem($filer->pathJoin('www', 'testing'));
+                $filer->emptyFolder();
+                $filer->setCurrentElem('');
+                $filer->copy('', $filer->pathJoin('www', 'testing'), $_ENV['W']['deploy']['blacklist']);
+            }
+        }
+
+        // add configuration to testing
+        if (file_exists($filer->filerPathJoin('www', 'testing', 'config'))) {
+            $filer->setCurrentElem($filer->pathJoin('www', 'testing', 'config'));
+            $filer->emptyFolder();
+        } else {
+            $filer->setCurrentElem($filer->pathJoin('www', 'testing'));
+            $filer->folderCreate('config');
+        }
+
+        $conf = $_ENV['W'];
+        $conf['environment'] = 'production';
+
+        // change 'url' to 'base_url'
+        $config = WalrusCompile::newConfiguration($conf);
+        $filer->setCurrentElem('');
+
+        copy(
+            $filer->filerPathJoin('config', 'config.php'),
+            $filer->filerPathJoin('www', 'testing', 'config', 'config.php')
+        );
+
+        $filer->setCurrentElem($filer->pathJoin('www', 'testing', 'config', 'config.php'));
+        $filer->changeFileContent($config);
+        $filer->setCurrentElem('');
+
+        copy(
+            $filer->filerPathJoin('config', 'env.php'),
+            $filer->filerPathJoin('www', 'testing', 'config', 'env.php')
+        );
+        $filer->setCurrentElem($filer->pathJoin('config', 'compiled.php'));
+        $filer->moveCurrent($filer->pathJoin('www', 'testing', 'config'));
+
+        if (isset($startCreateTesting)) {
+            $timeCreateTesting = round((microtime(true) - $startCreateTesting), 2) . 's';
+            echo 'done (' . $timeCreateTesting . ')' . "\r\n";
+        }
+
+        echo 'Your project as been deployed to the testing folder.' . "\r\n";
+
+        $answer = self::prompt('Deploy testing', array('yes', 'no'));
+
+        if ($answer == 'yes') {
+            $name = 'deploy-' . date('Y-m-d His');
+            $filer->setCurrentElem('');
+            $filer->folderCreate($name);
+
+            $filer->copy(
+                $filer->pathJoin('www', 'testing'),
+                $filer->pathJoin($name)
+            );
+
+        }
+
+        $filer->setCurrentElem($filer->pathJoin('www', 'testing'));
+        $filer->emptyFolder();
+        $filer->deleteCurrent();
+
+        $timeDeploy = round((microtime(true) - $startDeploy), 2) . 's';
+        echo 'Deploy as been successful (' . $timeDeploy . ')' . "\r\n";
+    }
+
+    /**
+     * Prompt something to user.
+     *
+     * @param string $ask a string displayed to the user when he fails
+     * @param array $answers
+     *
+     * @return string
+     */
+    public static function prompt ($ask, $answers)
+    {
+        echo $ask . ' (' . join('/', $answers) . ') ? ';
+
+        $handle = fopen("php://stdin", "r");
+
+        $line = strtolower(trim(fgets($handle)));
+
+        if (in_array($line, $answers)) {
+            return $line;
+        }
+
+        self::prompt($ask, $answers);
     }
 }

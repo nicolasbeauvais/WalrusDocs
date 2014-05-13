@@ -2,13 +2,13 @@
 
 namespace engine\controllers;
 
-use Walrus\core\WalrusFrontController as WalrusFrontController;
+use Walrus\core\WalrusController;
 
 /**
  * Class HomeController
  * @package engine\controllers
  */
-class HomeController extends WalrusFrontController
+class HomeController extends WalrusController
 {
     private $versions = array(
         '1.0.0b',

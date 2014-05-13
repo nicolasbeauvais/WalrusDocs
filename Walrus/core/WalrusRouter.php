@@ -10,7 +10,7 @@ namespace Walrus\core;
 
 use Spyc\Spyc;
 use Walrus\core\objects\Route;
-use Exception;
+use Walrus\core\WalrusException;
 use ReflectionClass;
 
 /**
@@ -102,13 +102,14 @@ class WalrusRouter
                 $this->processForAPI();
             } else {
                 session_start();
-                $this->getRoutesFromYAML();
+                $this->getRoutes();
                 $this->process();
             }
-        } catch (Exception $e) {
+        } catch (WalrusException $exception) {
+            $exception->handle();
             header("Status: 404 Not Found");
             header('HTTP/1.0 404 Not Found');
-            die();
+            die;
         }
     }
 
@@ -122,10 +123,11 @@ class WalrusRouter
 
         try {
             $this->process();
-        } catch (Exception $e) {
+        } catch (WalrusException $exception) {
+            $exception->handle();
             header("Status: 404 Not Found");
             header('HTTP/1.0 404 Not Found');
-            die();
+            die;
         }
     }
 
@@ -265,7 +267,7 @@ class WalrusRouter
     {
         // Check if route exists
         if (!isset($this->namedRoutes[$routeName])) {
-            throw new Exception("No route with the name $routeName has been found.");
+            throw new WalrusException("No route with the name $routeName has been found.");
         }
 
         $route = $this->namedRoutes[$routeName];
@@ -295,10 +297,12 @@ class WalrusRouter
     /**
      * Match routes, make verification on controller and action.
      *
-     * @throws Exception
+     * @throws WalrusException
      */
     private function process()
     {
+        $_ENV['W']['route_type'] = 'classic';
+
         $route = $this->matchCurrentRequest();
         if (!$route) {
             // try to find a default route
@@ -310,7 +314,7 @@ class WalrusRouter
 
             if (!$route) {
                 $url = isset($_GET['url']) ? $_GET['url'] : '/';
-                throw new Exception('[WalrusRouting] undefined route: ' . $url);
+                throw new WalrusException('Undefined route: ' . $url);
             }
         }
 
@@ -337,30 +341,31 @@ class WalrusRouter
         if (count($cb) === 2) {
             $controller = $cb[0];
             if (empty($controller)) {
-                throw new Exception('[WalrusRouting] empty route controller');
+                throw new WalrusException('Empty route controller');
             }
             $action = $cb[1];
             if (empty($action)) {
-                throw new Exception('[WalrusRouting] empty route action');
+                throw new WalrusException('Empty route action');
             }
         } else {
-            throw new Exception('[WalrusRouting] invalid route target: "' . $route->getTarget() . '"');
+            throw new WalrusException('Invalid route target: "' . $route->getTarget() . '"');
         }
 
         $class = WalrusAutoload::getNamespace($controller);
 
         if (!$class) {
-            throw new Exception('[WalrusRouting] Can\'t load class: ' . $controller);
+            throw new WalrusException('Can\'t load class: ' . $controller);
         }
 
         $rc = new ReflectionClass($class);
 
         // Create the controller object.
         $cb[0] = $rc->newInstance();
+        $rc->getConstructor();
 
         // check controller action method
         if ($cb[0] && ! method_exists($cb[0], $cb[1])) {
-            throw new Exception('Controller exception');
+            throw new WalrusException('Controller exception');
         }
 
         $rps = $rc->getMethod($cb[1])->getParameters();
@@ -379,7 +384,7 @@ class WalrusRouter
             } elseif ($default) {
                 $arguments[] = $default;
             } elseif (!$param->isOptional() && !$param->allowsNull()) {
-                throw new Exception('parameter is not defined.');
+                throw new WalrusException('parameter is not defined.');
             }
         }
 
@@ -391,6 +396,8 @@ class WalrusRouter
      */
     private function processForAPI()
     {
+        $_ENV['W']['route_type'] = 'api';
+
         $url = isset($_GET['url']) ? $_GET['url'] : '/';
         $apiUrl = rtrim(str_replace('api/', '', $url), '/');
 
@@ -399,11 +406,11 @@ class WalrusRouter
         if (count($cb) < 2) {
             $controller = $cb[0];
             if (empty($controller)) {
-                throw new Exception('[WalrusRouting] empty API controller');
+                throw new WalrusException('Empty API controller');
             }
             $action = $cb[1];
             if (empty($action)) {
-                throw new Exception('[WalrusRouting] empty API action');
+                throw new WalrusException('Empty API action');
             }
         }
 
@@ -415,10 +422,11 @@ class WalrusRouter
 
             // Create the controller object.
             $cb[0] = $rc->newInstance();
+            $rc->getConstructor();
 
             // check controller action method
             if ($cb[0] && ! method_exists($cb[0], $cb[1])) {
-                throw new Exception('Controller exception');
+                throw new WalrusException('Controller exception');
             }
 
             $rps = $rc->getMethod($cb[1])->getParameters();
@@ -453,7 +461,7 @@ class WalrusRouter
         $class = WalrusAutoload::getNamespace($controllerClass);
 
         if (!$class) {
-            throw new Exception('[WalrusFrontController] Can\'t load controller: ' . $controller);
+            throw new WalrusException('Can\'t load controller: ' . $controller);
         }
 
         $cb[] = array();
@@ -463,10 +471,11 @@ class WalrusRouter
 
         // Create the controller object.
         $cb[0] = $rc->newInstance();
+        $rc->getConstructor();
 
         // check controller action method
         if ($cb[0] && ! method_exists($cb[0], $cb[1])) {
-            throw new Exception('Controller exception');
+            throw new WalrusException('Controller exception');
         }
 
         call_user_func_array($cb, $param);
@@ -474,21 +483,11 @@ class WalrusRouter
 
     /**
      * Special Walrus router.
-     * Make use of pux with YAML functionality.
-     *
-     * @throws Exception
      */
-    public function getRoutesFromYAML()
+    public function getRoutes()
     {
 
-        //Load YAML routes
-        if (file_exists('../config/routes.yml')) {
-            $routes = Spyc::YAMLLoad('../config/routes.yml');
-        } else {
-            throw new Exception("Can't find routes.yml in config directory");
-        }
-
-        foreach ($routes as $name => $route) {
+        foreach ($_ENV['W']['routes'] as $name => $route) {
 
             $path = isset($route['path']) && !empty($route['path']) ? $route['path'] : '/';
             $controller = isset($route['controller']) ? $route['controller'] : '';

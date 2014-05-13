@@ -11,20 +11,19 @@ namespace Walrus\core;
 use Walrus\core\objects\Skeleton;
 use Walrus\core\objects\Template;
 use Walrus\core\objects\FrontController;
+use Walrus\core\WalrusException;
+use ReflectionClass;
 use MtHaml;
 use Smarty;
-use Spyc\Spyc;
-use ReflectionClass;
-use Exception;
 
 /**
- * Class WalrusFrontController
+ * Class WalrusController
  * @package Walrus\core
  */
-class WalrusFrontController
+class WalrusController
 {
     /**
-     * All requested template as a stack.
+     * All requested templated as a stack.
      * @var array
      */
     private static $templates = array();
@@ -73,9 +72,9 @@ class WalrusFrontController
     private $frontController;
 
     /**
-     * Array of instancied controllers
+     * Array of models instance
      */
-    private $models;
+    protected $models;
 
     /**
      * Array of instancied controllers
@@ -84,6 +83,8 @@ class WalrusFrontController
 
     /**
      * Init templating variables.
+     *
+     * Register all needed variables like _ENV and Helpers
      */
     public function __construct()
     {
@@ -101,14 +102,16 @@ class WalrusFrontController
                 self::$templating[1] = '';
         }
 
+        // Globals
         $this->register('_ENV', $_ENV);
+        $this->register('helpers', WalrusHelpers::execute());
     }
 
     /**
      * Add a template to the stack.
      *
      * Add a template to the template stack with ACL or not,
-     * the stack is displayed by WalrusFrontController::execute()
+     * the stack is displayed by WalrusController::execute()
      * at the end of Walrus execution.
      * setView as a very special treatment for all template called from
      * a Walrus core controller
@@ -116,17 +119,17 @@ class WalrusFrontController
      * @param string $view the template to add on templates stack
      * @param bool|string $acl
      *
-     * @throws Exception
+     * @throws WalrusException
      */
     protected function setView($view, $acl = false)
     {
         $className = explode('\\', get_called_class());
 
-        if (strrpos($view, '/') === false) {
+        if (strrpos($view, '/') === false && strrpos($view, '\\') === false) {
             $controller = strtolower(str_replace('Controller', '', end($className)));
-            $template = FRONT_PATH . $controller . '/' . $view . self::$templating[0];
+            $template = $_ENV['W']['FRONT_PATH'] . $controller . DIRECTORY_SEPARATOR . $view . self::$templating[0];
         } else {
-            $template = FRONT_PATH . $view . self::$templating[0];
+            $template = $_ENV['W']['FRONT_PATH'] . $view . self::$templating[0];
         }
 
         if ($acl && (!isset($_SESSION['acl']) || $acl != $_SESSION['acl'])) {
@@ -136,8 +139,10 @@ class WalrusFrontController
         $objTemplate = new Template();
 
         if ($className[0] === 'Walrus') {
-            $template = isset($controller) ? ROOT_PATH . 'Walrus/templates/' . $controller . '/' . $view . '.php'
-                : ROOT_PATH . 'Walrus/templates/' . $view . '.php';
+            $template = isset($controller) ? $_ENV['W']['ROOT_PATH'] . 'Walrus' . DIRECTORY_SEPARATOR
+                . 'templates' . DIRECTORY_SEPARATOR . $controller . DIRECTORY_SEPARATOR . $view . '.php'
+                : $_ENV['W']['ROOT_PATH'] . 'Walrus' . DIRECTORY_SEPARATOR . 'templates' . DIRECTORY_SEPARATOR
+                . $view . '.php';
             $objTemplate->setIsWalrus(true);
         }
 
@@ -154,12 +159,12 @@ class WalrusFrontController
      * @param $key
      * @param $var
      *
-     * @throws Exception
+     * @throws WalrusException
      */
     protected function register($key, $var)
     {
         if (!isset($key) || !isset($var)) {
-            throw new Exception('[WalrusFrontController] missing argument for function register');
+            throw new WalrusException('Missing argument for function register');
         }
 
         self::$variables[$key] = $var;
@@ -174,9 +179,9 @@ class WalrusFrontController
     {
         if ($_ENV['W']['templating'] == 'smarty') {
             self::$smarty = new Smarty();
-            self::$smarty->setCacheDir(ROOT_PATH . 'cache/smarty')
-                ->setCompileDir(ROOT_PATH . 'cache/smarty')
-                ->setTemplateDir(ROOT_PATH . 'templates');
+            self::$smarty->setCacheDir($_ENV['W']['ROOT_PATH'] . 'cache' . DIRECTORY_SEPARATOR . 'smarty')
+                ->setCompileDir($_ENV['W']['ROOT_PATH'] . 'cache' . DIRECTORY_SEPARATOR . 'smarty')
+                ->setTemplateDir($_ENV['W']['ROOT_PATH'] . 'templates');
         }
 
         if (count(self::$variables) > 0) {
@@ -197,7 +202,7 @@ class WalrusFrontController
                 }
                 switch ($_ENV['W']['templating']) {
                     case 'haml':
-                        self::compileToYaml(substr(self::$foreach_value->getTemplate(), 0, -4));
+                        self::compileToHAML(substr(self::$foreach_value->getTemplate(), 0, -4));
                         require(self::$foreach_value->getTemplate());
                         break;
                     case 'smarty':
@@ -236,17 +241,11 @@ class WalrusFrontController
     }
 
     /**
-     * Load skeletons from skeleton.yml.
+     * Load skeletons.
      */
     private function loadSkeletons()
     {
-        $skeleton_yaml = "../config/skeleton.yml";
-
-        if (!file_exists($skeleton_yaml)) {
-            throw new Exception('[WalrusFrontController] skeleton.yml doesn\'t exist in config/ directory');
-        }
-
-        $skeletons = Spyc::YAMLLoad($skeleton_yaml);
+        $skeletons = $_ENV['W']['skeletons'];
 
         foreach ($skeletons as $skeletonName => $skeleton) {
 
@@ -254,7 +253,7 @@ class WalrusFrontController
 
             foreach ($skeleton as $name => $value) {
 
-                $template = FRONT_PATH . $value['template'] . self::$templating[0];
+                $template = $_ENV['W']['FRONT_PATH'] . $value['template'] . self::$templating[0];
 
                 if (isset($value['acl']) && (!isset($_SESSION['acl']) || $value['acl'] != $_SESSION['acl'])) {
                     continue;
@@ -275,17 +274,16 @@ class WalrusFrontController
     }
 
     /**
-     * Compile yaml file.
+     * Compile HAML file.
      */
-    private static function compileToYaml ($template)
+    private static function compileToHAML ($template)
     {
         $haml = new MtHaml\Environment('php');
 
         if (!file_exists($template)) {
-            throw new Exception('[WalrusFrontController] requested template does not exist: ' . $template);
+            throw new WalrusException('Requested template does not exist: ' . $template);
         }
 
-        // @TODO: use WalrusFileManager
         $hamlCode = file_get_contents($template);
 
         if (!file_exists($template . '.php') || filemtime($template . '.php') != filemtime($template)) {
@@ -303,7 +301,7 @@ class WalrusFrontController
      * @param string $controller
      *
      * @return Class the specofied controller class
-     * @throws Exception if the controller doesn't exist
+     * @throws WalrusException if the controller doesn't exist
      */
     protected function controller($controller)
     {
@@ -316,7 +314,7 @@ class WalrusFrontController
         $controllerClassWithNamespace =  WalrusAutoload::getNamespace($controllerClass);
 
         if (!$controllerClassWithNamespace) {
-            throw new Exception('[WalrusFrontController] request unexistant controller: ' . $controllerClass);
+            throw new WalrusException('Request unexistant controller: ' . $controllerClass);
         }
 
         $controllerInstance = new $controllerClassWithNamespace();
@@ -330,7 +328,7 @@ class WalrusFrontController
      *
      * @param string $model
      *
-     * @throws \Exception if the model doesn't exist
+     * @throws WalrusException if the model doesn't exist
      * @return Class the specified model class
      */
     protected function model($model)
@@ -344,8 +342,11 @@ class WalrusFrontController
         $modelClassWithNamespace =  WalrusAutoload::getNamespace($modelClass);
 
         if (!$modelClassWithNamespace) {
-            throw new Exception('[WalrusFrontController] request unexistant model: ' . $modelClass);
+            throw new WalrusException('Request unexistant model: ' . $modelClass);
         }
+
+        $refl = new ReflectionClass($modelClassWithNamespace);
+        $refl->getConstructor();
 
         $modelInstance = new $modelClassWithNamespace();
         $this->models[$modelClass] = $modelInstance;
@@ -368,14 +369,14 @@ class WalrusFrontController
     /**
      * Reroute to a new controller.
      *
-     * the reroute action clean all the WalrusFrontController.
+     * the reroute action clean all the WalrusController.
      * the controller / action don't need to be accessible with classic routing.
      *
      * @param string $controller a controller name
      * @param string $action an action of the controller
      * @param array $param an array of the parameter to pass to the controller
      *
-     * @throws Exception
+     * @throws WalrusException
      */
     protected function reroute($controller, $action, $param = array())
     {
@@ -401,7 +402,7 @@ class WalrusFrontController
     /**
      * Process a new controller and return his content.
      *
-     * the reroute action doesn't clean WalrusFrontController.
+     * the reroute action doesn't clean WalrusController.
      * All your previously stored template / skeleton and variables
      * are restored.
      * the controller / action don't need to be accessible with classic routing.
@@ -411,7 +412,7 @@ class WalrusFrontController
      * @param array $param an array of the parameter to pass to the controller
      *
      * @return string the content made by the getted controller
-     * @throws Exception
+     * @throws WalrusException
      */
     protected function getSoft($controller, $action, $param = array())
     {
@@ -451,7 +452,7 @@ class WalrusFrontController
     }
 
     /**
-     * Reset all variables from the WalrusFrontController class.
+     * Reset all variables from the WalrusController class.
      */
     private function uload()
     {

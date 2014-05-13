@@ -2,7 +2,8 @@
 
 namespace Walrus\controllers;
 
-use Walrus\core\WalrusFrontController;
+use Walrus\core\WalrusCompile;
+use Walrus\core\WalrusController;
 use Walrus\core\WalrusFileManager;
 use Exception;
 use R;
@@ -11,33 +12,24 @@ use R;
  * Class ConfigController
  * @package engine\controllers
  */
-class ConfigController extends WalrusFrontController
+class ConfigController extends WalrusController
 {
 
     public function config()
     {
         if (isset($_POST['config'])) {
-            if (!empty($_POST['RDBMS']) && !empty($_POST['hostname']) && !empty($_POST['databasename'])
-                && !empty($_POST['user']) && !empty($_POST['url']) && !empty($_POST['templating'])
+            if (!empty($_POST['RDBMS']) && !empty($_POST['host']) && !empty($_POST['database'])
+                && !empty($_POST['name']) && !empty($_POST['base_url']) && !empty($_POST['templating'])
                 && !empty($_POST['environment'])) {
 
-                $filer = new WalrusFileManager(ROOT_PATH);
+                $filer = new WalrusFileManager($_ENV['W']['ROOT_PATH']);
 
-                $filer->setCurrentElem('Walrus/core/sample/config.sample');
-                $config = $filer->getFileContent();
-                $config = str_replace('%rdbms%', strtolower($_POST['RDBMS']), $config);
-                $config = str_replace('%host%', $_POST['hostname'], $config);
-                $config = str_replace('%database%', $_POST['databasename'], $config);
-                $config = str_replace('%name%', $_POST['user'], $config);
-                $config = str_replace('%password%', $_POST['password'], $config);
-                $config = str_replace('%url%', $_POST['url'], $config);
-                $config = str_replace('%templating%', strtolower($_POST['templating']), $config);
-                $config = str_replace('%environment%', strtolower($_POST['environment']), $config);
+                $config = WalrusCompile::newConfiguration($_POST);
 
                 $filer->setCurrentElem('config');
-                $filer->fileCreate('config.yml');
+                $filer->fileCreate('config.php');
 
-                $filer->setCurrentElem('config/config.yml');
+                $filer->setCurrentElem('config/config.php');
                 $filer->changeFileContent($config);
 
                 $this->register('validation', true);
@@ -48,12 +40,12 @@ class ConfigController extends WalrusFrontController
             $response = array(
                 'success' => false
             );
-            if (!empty($_POST['RDBMS']) && !empty($_POST['hostname'])
-                && !empty($_POST['databasename']) && !empty($_POST['user'])) {
+            if (!empty($_POST['RDBMS']) && !empty($_POST['host'])
+                && !empty($_POST['database']) && !empty($_POST['name'])) {
                 try {
                     R::setup(
-                        $_POST['RDBMS'] . ':host=' . $_POST['hostname'] . ';dbname=' . $_POST['databasename'],
-                        $_POST['user'],
+                        $_POST['RDBMS'] . ':host=' . $_POST['host'] . ';dbname=' . $_POST['database'],
+                        $_POST['name'],
                         $_POST['password']
                     );
                     R::debug(true);
