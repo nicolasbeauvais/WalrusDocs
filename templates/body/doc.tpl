@@ -1,6 +1,6 @@
 <div id="container">
 
-<div class="container">
+    <div class="container">
     <div id="sidebar">
 
         <form id="change-version" action="{$_ENV['W']['base_url']}api/version/change" method="post">

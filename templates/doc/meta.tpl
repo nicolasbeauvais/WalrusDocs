@@ -1,3 +1,4 @@
+{* documentation pages *}
 {if $doc == 'required'}
 The basics of Walrus Framework, help you to check if your current
 development can run Walrus Framework whitout any issues.
@@ -42,6 +43,11 @@ polling request and display new entity automatically.
 {elseif $doc == 'js-templating'}
 To go allong with long polling dipslaying Walrus Framework provide a really
 simple, yet, powerfull javascript templating language.
+
+{* Other pages *}
+{elseif $doc == 'required'}
+Keep informed of the last Walrus Framework version, the advance of the next
+release, and download all the older version
 {else}
 Walrus framework documentation. Walrus is a framework for building
 web-application in a very simple way according to the Model-View-Controller

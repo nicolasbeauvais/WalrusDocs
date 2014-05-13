@@ -28,4 +28,16 @@
 
     {* Front End *}
     <p class="title">Front-end</p>
+
+    {* Walrus.js *}
+    <h6>Walrus.js</h6>
+
+    <ul>
+        <li><span class="ul-title">Ajax Navigation</span> new method</li>
+        <li><span class="ul-title"></span></li>
+        <li><span class="ul-title"></span></li>
+        <li><span class="ul-title"></span></li>
+        <li><span class="ul-title"></span></li>
+        <li><span class="ul-title"></span></li>
+    </ul>
 </div>

@@ -1,8 +1,13 @@
 # Routes
 
 _home:
-    path:   ''
+    path: ''
     controller: 'HomeController'
+    action: 'run'
+
+_releases:
+    path: 'releases'
+    controller: 'ReleasesController'
     action: 'run'
 
 _doc:

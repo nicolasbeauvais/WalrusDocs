@@ -10,6 +10,16 @@ _skeleton_main:
     footer:
         template: "footer/footer"
 
+_skeleton_releases:
+    head:
+        template: "header/head"
+    nav:
+        template: "menu/menu"
+    body:
+        template: "body/releases"
+    footer:
+        template: "footer/footer"
+
 _skeleton_doc:
     head:
         template: "header/head"
