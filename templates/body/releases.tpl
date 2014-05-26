@@ -6,13 +6,8 @@
             <div class="txt">
                 <span class="left">Issues</span>
                 <span class="right">
-                    {$milestone.open_issues}/{$milestone.total_issues}
+                    {$milestone.closed_issues}/{$milestone.total_issues}
                 </span>
-            </div>
-            <div class="gauge-border"></div>
-            <div class="fill time"></div>
-            <div class="txt">
-                <span class="left">time</span>
             </div>
         </div>
     </div>

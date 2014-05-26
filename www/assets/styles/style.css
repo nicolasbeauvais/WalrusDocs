@@ -276,8 +276,12 @@ body {
     font-style: italic; }
   #doc-content .new {
     color: #40bd4b; }
+  #doc-content .update {
+    color: #ff8946; }
+  #doc-content .rename {
+    color: #5bcaf5; }
   #doc-content ul {
-    padding: 20px 0 20px 20px;
+    padding: 0 0 20px 20px;
     list-style: circle; }
     #doc-content ul li {
       line-height: 20px; }
@@ -318,7 +322,7 @@ body {
       text-indent: 20px; }
   .container.releases .gauge {
     padding-left: 100px;
-    height: 90px;
+    height: 60px;
     background-color: #d8e0e2;
     position: relative; }
     .container.releases .gauge .fill {

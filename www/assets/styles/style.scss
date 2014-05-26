@@ -304,8 +304,14 @@ body {
   .new {
     color: $font-green;
   }
+  .update {
+    color: #ff8946;
+  }
+  .rename {
+    color: $font-blue;
+  }
   ul {
-    padding: 20px 0 20px 20px;
+    padding: 0 0 20px 20px;
     list-style: circle;
     li {
       line-height: 20px;
@@ -357,7 +363,7 @@ body {
   }
   .gauge {
     padding-left: 100px;
-    height: 90px;
+    height: 60px;
     background-color: $border;
     position: relative;
     .fill {
