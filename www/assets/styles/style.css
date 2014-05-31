@@ -249,13 +249,13 @@ body {
   padding: 50px 20px;
   float: right;
   display: inline-block; }
-  #doc-content h5 {
+  #doc-content h1, #doc-content h2, #doc-content h5 {
     font-weight: 600;
     font-size: 40px;
     color: #42535a;
     padding-bottom: 30px;
     padding-top: 10px; }
-    #doc-content h5:first-child {
+    #doc-content h1:first-child, #doc-content h2:first-child, #doc-content h5:first-child {
       padding-top: 0; }
   #doc-content h6 {
     font-weight: 500;
@@ -294,9 +294,10 @@ body {
     overflow-y: hidden !important;
     overflow-x: auto !important;
     padding-bottom: 30px; }
-  #doc-content a {
+  #doc-content a, #doc-content .link {
     text-decoration: underline;
-    color: #42535a; }
+    color: #42535a;
+    cursor: pointer; }
   #doc-content #changelog p.title {
     border-bottom: 2px solid #d8e0e2;
     border-left: 2px solid #d8e0e2;

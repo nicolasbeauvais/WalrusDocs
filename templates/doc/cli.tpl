@@ -1,17 +1,18 @@
-<h5>CLI (Command Line Interface) a.k.a Tusk</h5>
+<h1>CLI</h1>
 
 <p>We added to <strong>Walrus</strong> a simple tool in order to generate few things that we usually do not like to do
-   because it is simply repetitive like models and controllers.</p>
-<p>There's only one thing you need in order to use Tusk : be at your root folder. This is simply because Tusk is at the root of <strong>Walrus</strong>.</p>
+   because it is simply repetitive like creating models and controllers.</p>
 
-<h6>Let's create a model !</h6>
+<p>For more informations about deployment instruction check the <a href="/doc/dpeloy">deploy</a> section</p>
+
+<h6>Creating a model</h6>
 
 <pre class="brush: php">
     php tusk createModel Test
 </pre><br/>
 
 <p>Here we simply call the createModel action that will generate a Model with the Name we previously
-   gave to Tusk.Keep in mind that a model name has an uppercased first letter.</p>
+   gave to Tusk. Keep in mind that a model name has an uppercased first letter.</p>
 <p>It will render something like this :</p>
 
 <pre class="brush: php">
@@ -25,7 +26,7 @@
     }
 </pre><br/>
 
-<h6>Let's create a controller !</h6>
+<h6>Creating a controller</h6>
 
 <pre class="brush: php">
     php tusk createController test
@@ -37,9 +38,29 @@
 <pre class="brush: php">
     namespace engine\controllers;
 
-    use Walrus\core\WalrusFrontController as WalrusFrontController;
+    use Walrus\core\WalrusController
 
-    class testController extends WalrusFrontController
+    class TestController extends WalrusController
+    {
+
+    }
+</pre><br/>
+
+<h6>Creating an API controller</h6>
+
+<pre class="brush: php">
+    php tusk createAPIController test
+</pre><br/>
+
+<p>Exactly the same as a controller but we now call the createController method. Note that a controller name
+    has no uppercased first letter.</p>
+
+<pre class="brush: php">
+    namespace engine\api;
+
+    use Walrus\core\WalrusAPI;
+
+    class testController extends WalrusAPI
     {
 
     }

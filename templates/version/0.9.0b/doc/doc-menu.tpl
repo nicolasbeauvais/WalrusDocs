@@ -1,9 +1,5 @@
 <span class="beta">Beta version</span>
 
-<span class="h4">Change log</span>
-<ul>
-    <li><a href="{$url}change-log">Change log</a></li>
-</ul>
 <span class="h4">Basics</span>
 <ul>
     <li><a href="{$url}required">Required</a></li>

@@ -269,7 +269,7 @@ body {
   padding: 50px 20px;
   float: right;
   display: inline-block;
-  h5 {
+  h1, h2, h5 {
     font-weight: 600;
     font-size: 40px;
     color: $font-menu;
@@ -329,9 +329,10 @@ body {
     overflow-x: auto !important;
     padding-bottom: 30px;
   }
-  a {
+  a, .link {
     text-decoration: underline;
     color: $font-menu;
+    cursor: pointer;
   }
   #changelog {
     p.title {

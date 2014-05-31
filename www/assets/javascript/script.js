@@ -1,5 +1,6 @@
 Walrus.init({
-    ajaxNavigation: true
+    ajaxNavigation: true,
+    nolink: true
 });
 
 SyntaxHighlighter.all();

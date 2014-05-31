@@ -29,3 +29,18 @@
         //your javascript code
     });
 </pre>
+
+<h6>Open a new page with Ajax navigation</h6>
+
+<p>If you have a custom url generated with a script you can load the page with the
+    <span class="bold">go</span> method like so:</p>
+
+<pre class="brush: javascript">
+    Walrus.go(pageUrl, isBack, callback);
+</pre>
+
+<ul>
+    <li><span class="bold">pageUrl:</span> a formatted url</li>
+    <li><span class="bold">isBack:</span> equal to a page return</li>
+    <li><span class="bold">callback:</span> a callback function executed at the end of the ajax request</li>
+</ul>

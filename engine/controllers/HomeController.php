@@ -11,8 +11,8 @@ use Walrus\core\WalrusController;
 class HomeController extends WalrusController
 {
     private $versions = array(
-        '1.0.0b',
-        'default' => '0.9.0b'
+        '0.9.0b',
+        'default' => '1.0.0'
     );
 
     public function run()
@@ -22,10 +22,15 @@ class HomeController extends WalrusController
 
     public function doc($version = false, $doc = false)
     {
+        if (!$doc && $version && !is_numeric(substr($version, 0, 1))) {
+            $doc = $version;
+            $version = $this->versions['default'];
+        }
+
         // control
         $version = $version && in_array($version, $this->versions) ? $version : $this->versions['default'];
         $isDefault = $this->versions['default'] === $version;
-        $doc = $doc ?: ($version == $this->versions['default'] ? 'required' : 'change-log');
+        $doc = $doc ?: ($version == $this->versions[0] ? 'required' : 'change-log');
         $url = $_ENV['W']['base_url'] . 'doc/' . ($isDefault ? '' : $version . '/');
 
         // meta vars

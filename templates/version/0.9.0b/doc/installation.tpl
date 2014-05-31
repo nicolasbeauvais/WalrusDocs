@@ -22,4 +22,3 @@
 
 <h6>Note :</h6>
 <p>If you want to change few things later, you can still make changes in config/config.yml .</p>
-<p style="color:red;">Important : don't forget to enable rewriting module on you server !</p>

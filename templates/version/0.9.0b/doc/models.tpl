@@ -8,7 +8,6 @@
     php tusk createModel controller_name
 </pre>
 
-
 <p>Or you can simply create a file in <span class="italic">engine/models/</span> that looks like this :</p>
 
 <pre class="brush: php">

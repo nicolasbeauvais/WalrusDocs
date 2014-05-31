@@ -1,9 +1,8 @@
-<h5>Routing</h5>
+<h1>Routing</h1>
 
 <p>
    <strong>Walrus</strong> use a simple routing system inspired by ROR and Symfony.
-   All your route must be defined in the routes.yml file, in the
-   <span class="bold">config/</span> directory.
+   All your routes must be created with yaml in the <span class="bold">config/routes/</span> directory
 </p>
 
 <h6>Simple route</h6>
@@ -22,8 +21,8 @@
         the route name is unique</li>
     <li><span class="bold">Line 2:</span> the route path, need to be a valid url, you don't need
         to add a slash in the begining</li>
-    <li><span class="bold">Line 1:</span> the controller, a full controller name</li>
-    <li><span class="bold">Line 1:</span> the action, a public method from the controller</li>
+    <li><span class="bold">Line 3:</span> the controller, a full controller name</li>
+    <li><span class="bold">Line 4:</span> the action, a public method from the controller</li>
 </ul>
 
 <h6>Parameters</h6>
@@ -126,3 +125,7 @@
                 param4: 'hello'
 </pre>
 {/literal}
+
+<h6>Default page</h6>
+
+<p>You can setup default pages for 403 and 404 error codes by naming them _404 and _403</p>
