@@ -1,19 +1,18 @@
-<h5>Create a new Controllers</h5>
+<h1>Controllers</h1>
 
 <p>
-   You can create a new controller with the <a href="/doc/cli"><strong>Walrus</strong> CLI</a>, or create it yourself with
-   this basic syntax:
+   You can create a new controller with the <a href="/doc/cli"><strong>Walrus</strong> CLI</a>, or create it yourself
+    using this basic syntax:
 </p>
 
 {literal}
 <pre class="brush: php">
-    &lt;?php
 
     namespace engine\controllers;
 
-    use Walrus\core\WalrusFrontController as WalrusFrontController;
+    use Walrus\core\WalrusController;
 
-    class HomeController extends WalrusFrontController
+    class TestController extends WalrusController
     {
 
         public function run()
@@ -38,7 +37,7 @@
 
 <ul>
     <li><span class="bold">Line 3:</span> load the view in www/templates/hello/helloview.?</li>
-    <li><span class="bold">Line 3:</span> load the view in www/templates/otherfolder/helloview.?</li>
+    <li><span class="bold">Line 4:</span> load the view in www/templates/otherfolder/helloview.?</li>
 </ul>
 
 <p>You can also specified an ACL to a template:</p>

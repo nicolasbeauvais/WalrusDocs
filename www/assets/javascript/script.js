@@ -3,6 +3,8 @@ Walrus.init({
     nolink: true
 });
 
+SyntaxHighlighter.defaults['toolbar'] = false;
+
 SyntaxHighlighter.all();
 
 Walrus.breadCrumb(function () {

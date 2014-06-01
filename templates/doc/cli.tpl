@@ -66,8 +66,8 @@
     }
 </pre><br/>
 
-<h6>Note :</h6>
-<p>If you are lost you still can type :</p>
+<h6>Help</h6>
+<p>If you are lost you can type :</p>
 <pre class="brush: php">
     php tusk
 </pre><br/>

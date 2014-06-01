@@ -11,7 +11,7 @@
 <span class="h4">Back-end</span>
 <ul>
     <li><a href="{$url}routing">Routing</a></li>
-    <li><a href="{$url}cli">CLI tools</a></li>
+    <li><a href="{$url}cli">CLI</a></li>
     <li><a href="{$url}controllers">Controllers</a></li>
     <li><a href="{$url}models">Models</a></li>
     <li><a href="{$url}api">API</a></li>

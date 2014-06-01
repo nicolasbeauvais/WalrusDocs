@@ -30,4 +30,5 @@
             </div>
         {/foreach}
     </div>
+    <div class="clear"></div>
 </div>
