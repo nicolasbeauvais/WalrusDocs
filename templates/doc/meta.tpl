@@ -38,6 +38,9 @@
 {elseif $doc == 'ajax-navigation'}
     Walrus Framework let you setup a complete ajax navigation script with 1 line
     of javascript code and give you plenty of ajax navigation features.
+{elseif $doc == 'nolink'}
+    As a SEO friendly framework, Walrus as builtin nolink method to elp you give
+    all the strenght you need to your links.
 {elseif $doc == 'lazyload'}
     Walrus Framework respect and encourages SEO best practice, you can lazyload
     every content easily with javascript integrated functions.

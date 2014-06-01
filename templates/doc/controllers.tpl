@@ -75,7 +75,7 @@
 
 <h6>Call a method from an other controller</h6>
 
-<p>To call a mehtod from an other controller, use the controller method:</p>
+<p>To call a method from an other controller, use the controller method:</p>
 
 <pre class="brush: php">
     public function run()
@@ -103,7 +103,7 @@
 
 <p>If you want to redirect your controller to an other web page, simply use the go method</p>
 
-<pre class="brush: php">
+<pre class="brush: php; auto-links: false;">
     public function run()
     {
         $this->go('http://url-to-redirect.com');
@@ -126,7 +126,7 @@
 
 <p>The get hard method give you the content of a specified url (curl style)</p>
 
-<pre class="brush: php">
+<pre class="brush: php; auto-links: false;">
     public function run()
     {
         $this->getHard('http://website-to-get-content.com');
@@ -135,11 +135,10 @@
 
 <h6>Get (Soft)</h6>
 
-<p>The get soft method is a unique method from <strong>Walrus</strong> <strong>framework</strong>, this method allow you to get
-   the rendered content of a controller's action, it use the same light rerouting as the reroute
-   method and catch all the front end rendering as a string, every interaction with the front
-   controller like setting view or registering variable are instancied for a full compatibility
-    between controllers</p>
+<p>The get soft method is a unique method from <strong>Walrus</strong> <strong>framework</strong>, this method allow you
+    to get the rendered content of a controller's action, it use the same light rerouting as the reroute method and
+    catch all the front end rendering as a string, every interaction with the controller like setting view or
+    registering variable are instantiated for a full compatibility between controllers.</p>
 
 <pre class="brush: php">
     public function run()

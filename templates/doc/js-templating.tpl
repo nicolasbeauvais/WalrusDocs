@@ -1,4 +1,4 @@
-<h5>Templating</h5>
+<h1>Templating</h1>
 
 <p><strong>Walrus</strong>.js is given with a really lightweight but useful templating language,
    First you can create a template in html and specify the javascript data you want in it:</p>

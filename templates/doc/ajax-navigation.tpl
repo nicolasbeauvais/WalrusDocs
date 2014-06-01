@@ -1,4 +1,4 @@
-<h5>Ajax navigation</h5>
+<h1>Ajax navigation</h1>
 
 <p>
     <strong>Walrus</strong> provide a 100% automated ajax navigation, you just need to
@@ -19,13 +19,11 @@
 
 <h6>Listen the page change</h6>
 
-<p>Every time a page is loaded with the ajax navigation, <strong>Walrus</strong>.js fire a
-   <span class="bold">pageLoaded</span> event on <span class="bold">document</span>. <br/>
-   Basically if you use jQuery you can just use this to execute your code everytime
-   a page is loaded:</p>
+<p>Every time a page is loaded with the ajax navigation, <strong>Walrus</strong>.js will execute the breadcrumb
+    callback, you can set it as follow:
 
 <pre class="brush: javascript">
-    $(document).on('pageLoaded', function () {
+    Walrus.breadCrumb(function () {
         //your javascript code
     });
 </pre>

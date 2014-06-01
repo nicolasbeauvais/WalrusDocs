@@ -16,7 +16,7 @@ _doc:
     action: 'doc'
     filters:
         require:
-            version: '\d\.\d\.\d[\w]{0,1}|[\w-]+"'
+            version: '\d\.\d\.\d[\w]{0,1}|[\w-]+'
             doc: '[\w-]+'
         default:
             version: false

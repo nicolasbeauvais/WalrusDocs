@@ -1,10 +1,9 @@
-<h5>Skeleton</h5>
+<h1>Skeleton</h1>
 
 <p>
     Skeleton is a cool features from <strong>Walrus</strong> <strong>framework</strong> intended for front end developer.
-    You can create your skeleton (which are basically view agregation), in the
-    <span class="bold">skeleton</span>.yml file in the <span class="bold">config/</span>
-    directory
+    You can create your skeleton (which are basically view aggregation), in the
+    <span class="bold">config/skeleton/</span> directory
 </p>
 
 <h6>Skeleton example</h6>

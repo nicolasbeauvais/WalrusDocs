@@ -21,6 +21,7 @@
 <ul>
     <li><a href="{$url}skeleton">Skeleton</a></li>
     <li><a href="{$url}ajax-navigation">AJAX navigation</a></li>
+    <li><a href="{$url}nolink">Nolink</a></li>
     <li><a href="{$url}lazyload">Lazyload</a></li>
     <li><a href="{$url}front-long-polling">Long polling</a></li>
     <li><a href="{$url}js-templating">Javascript Templating</a></li>

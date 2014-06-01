@@ -1,7 +1,7 @@
-<h5>Long Polling</h5>
+<h1>Long Polling</h1>
 
 <p><strong>Walrus</strong> let you setup a long polling script in a very simple way, check the
-   <a href="api-and-long-polling">API & long polling</a> to setup the backend
+   <a href="long-polling">long polling</a> to setup the backend
    of your long polling first</p>
 
 <p>To subscribe to the long polling in javascript use the following function

@@ -37,7 +37,8 @@ Here is the route pattern:
 </pre>
 {/literal}
 
-<p>The api has the same <span class="bold">action</span> and <span class="bold">model</span> method as a normal <a href="/doc/controller">controller</a></p>
+<p>The api has the same <span class="bold">action</span> and <span class="bold">model</span> method as a normal
+    <a href="/doc/controllers">controller</a></p>
 
 <p>To make an API action you just need to return an array of data, it will be automatically parsed into JSON. <br/>
    For exemple the following controller :</p>
