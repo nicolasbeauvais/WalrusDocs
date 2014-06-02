@@ -10,6 +10,10 @@
 {elseif $doc == 'getting-started'}
     Walrus Framework's getting started guide will give you all the usefull
     informatons you must know before starting your PHP script.
+{elseif $doc == 'monitoring-exception'}
+    The monitoring of Walrus is processed when you use Walrus Framework in
+    development mode. it handle the developper toolbar and the Framework
+    Exceptions
 {elseif $doc == 'routing'}
     Walrus Framework use a simple routing system inspired by other big
     Framework. Walrus let you make really advanced route in YAML with all

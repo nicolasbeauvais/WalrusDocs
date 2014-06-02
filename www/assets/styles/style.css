@@ -268,6 +268,9 @@ body {
   #doc-content p {
     padding-bottom: 30px;
     line-height: 20px; }
+  #doc-content img {
+    display: block;
+    margin: 0 auto 20px auto; }
   #doc-content .bold {
     font-weight: 600;
     font-size: 17px;
@@ -365,42 +368,44 @@ body {
       border-bottom: 1px solid #919699; }
   .container.releases #previous {
     margin: 100px 0; }
-    .container.releases #previous .release .left {
-      height: 60px;
-      float: left;
-      min-width: 200px;
-      padding-right: 40px;
-      margin-right: 40px;
-      border-right: 1px solid #d8e0e2;
-      text-align: right; }
-      .container.releases #previous .release .left .tag {
-        font-size: 22px;
-        padding-right: 10px;
-        margin-bottom: 15px;
-        font-weight: bold; }
-      .container.releases #previous .release .left .type {
-        color: #fff;
-        font-weight: bold;
-        padding: 5px 10px;
-        background-color: #f49f0b;
-        display: inline-block;
-        border-radius: 15px; }
-    .container.releases #previous .release .right {
-      float: left; }
-      .container.releases #previous .release .right .name {
-        font-weight: bold;
-        font-size: 28px;
-        margin-bottom: 15px; }
-      .container.releases #previous .release .right ul li {
-        float: left; }
-        .container.releases #previous .release .right ul li:first-child {
-          float: left;
-          padding: 5px 10px 0 0; }
-        .container.releases #previous .release .right ul li a {
-          background-color: #d8e0e2;
-          display: inline-block;
-          border-radius: 15px;
-          padding: 5px 10px;
-          margin-right: 10px;
+    .container.releases #previous .release {
+      margin-bottom: 40px; }
+      .container.releases #previous .release .left {
+        height: 60px;
+        float: left;
+        min-width: 200px;
+        padding-right: 40px;
+        margin-right: 40px;
+        border-right: 1px solid #d8e0e2;
+        text-align: right; }
+        .container.releases #previous .release .left .tag {
+          font-size: 22px;
+          padding-right: 10px;
+          margin-bottom: 15px;
+          font-weight: bold; }
+        .container.releases #previous .release .left .type {
+          color: #fff;
           font-weight: bold;
-          color: #fff; }
+          padding: 5px 10px;
+          background-color: #f49f0b;
+          display: inline-block;
+          border-radius: 15px; }
+      .container.releases #previous .release .right {
+        float: left; }
+        .container.releases #previous .release .right .name {
+          font-weight: bold;
+          font-size: 28px;
+          margin-bottom: 15px; }
+        .container.releases #previous .release .right ul li {
+          float: left; }
+          .container.releases #previous .release .right ul li:first-child {
+            float: left;
+            padding: 5px 10px 0 0; }
+          .container.releases #previous .release .right ul li a {
+            background-color: #d8e0e2;
+            display: inline-block;
+            border-radius: 15px;
+            padding: 5px 10px;
+            margin-right: 10px;
+            font-weight: bold;
+            color: #fff; }

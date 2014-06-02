@@ -1,6 +1,6 @@
 <div class="container releases">
     <div id="milestone">
-        <p class="title">Next release: <span>{$milestone.title} in {$milestone.days_before_due} days</span></p>
+        <p class="title">Next release: <span>{$milestone.title}</span></p>
         <div class="gauge">
             <div class="fill issues" style="width:{$milestone.adv_commit}%;"></div>
             <div class="txt">
@@ -17,7 +17,6 @@
             <div class="release">
                 <div class="left">
                     <p class="tag">Walrus {$rel.tag_name}</p>
-                    <p class="type">Pre-alpha</p>
                 </div>
                 <div class="right">
                     <p class="name">{$rel.name}</p>
@@ -27,8 +26,8 @@
                         <li><a href="{$rel.tarball_url}">.tar.gz</a></li>
                     </ul>
                 </div>
+                <div class="clear"></div>
             </div>
         {/foreach}
     </div>
-    <div class="clear"></div>
 </div>

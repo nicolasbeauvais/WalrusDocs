@@ -2,12 +2,20 @@
 <ul>
     <li><a href="{$url}change-log">Change log</a></li>
 </ul>
+
 <span class="h4">Basics</span>
 <ul>
     <li><a href="{$url}required">Required</a></li>
     <li><a href="{$url}installation">Installation</a></li>
     <li><a href="{$url}getting-started">Getting started</a></li>
 </ul>
+
+<span class="h4">Tools</span>
+<ul>
+    <li><a href="{$url}monitoring-exception">Monitoring & Exception</a></li>
+    <li><a href="{$url}deploy">Deploy</a></li>
+</ul>
+
 <span class="h4">Back-end</span>
 <ul>
     <li><a href="{$url}routing">Routing</a></li>
@@ -17,6 +25,7 @@
     <li><a href="{$url}api">API</a></li>
     <li><a href="{$url}long-polling">Long polling</a></li>
 </ul>
+
 <span class="h4">Front-end</span>
 <ul>
     <li><a href="{$url}skeleton">Skeleton</a></li>

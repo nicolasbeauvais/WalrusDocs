@@ -293,6 +293,11 @@ body {
     padding-bottom: 30px;
     line-height: 20px;
   }
+  img {
+    display: block;
+    margin: 0 auto 20px auto;
+  }
+
   .bold {
     font-weight: 600;
     font-size: 17px;
@@ -417,6 +422,7 @@ body {
   #previous {
     margin: 100px 0;
     .release {
+      margin-bottom: 40px;
       .left {
         height: 60px;
         float: left;

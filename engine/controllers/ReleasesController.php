@@ -15,7 +15,7 @@ class ReleasesController extends WalrusController
         Chrome/32.0.1700.102 Safari/537.36';
 
         // get milestone
-        $url = 'https://api.github.com/repos/E-Wok/Walrus/milestones/1';
+        $url = 'https://api.github.com/repos/E-Wok/Walrus/milestones/2';
         $ch = curl_init();
         curl_setopt_array($ch, array(
             CURLOPT_RETURNTRANSFER => 1,

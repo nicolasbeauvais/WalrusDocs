@@ -22,6 +22,7 @@ class HomeController extends WalrusController
 
     public function doc($version = false, $doc = false)
     {
+
         if (!$doc && $version && !is_numeric(substr($version, 0, 1))) {
             $doc = $version;
             $version = $this->versions['default'];
