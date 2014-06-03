@@ -1,4 +1,5 @@
 <div class="container releases">
+    {*
     <div id="milestone">
         <p class="title">Next release: <span>{$milestone.title}</span></p>
         <div class="gauge">
@@ -11,6 +12,8 @@
             </div>
         </div>
     </div>
+    *}
+
     <div id="previous">
         <p class="title">Previous releases:</p>
         {foreach $releases as $rel}

@@ -54,6 +54,9 @@
 {elseif $doc == 'js-templating'}
     To go allong with long polling dipslaying Walrus Framework provide a really
     simple, yet, powerfull javascript templating language.
+{elseif $doc == 'h-basics'}
+    Learn how Walrus helpers works , how to use them and how you can write your
+    own helpers to add features to Walrus Framework.
 {else}
     Walrus framework documentation. Walrus is a framework for building
     web-application in a very simple way according to the Model-View-Controller

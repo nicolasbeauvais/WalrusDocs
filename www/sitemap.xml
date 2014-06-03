@@ -114,4 +114,19 @@
   <changefreq>weekly</changefreq>
   <priority>0.80</priority>
 </url>
+<url>
+    <loc>http://walrus-framework.com/doc/h-basics</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+</url>
+<url>
+    <loc>http://walrus-framework.com/doc/h-tag</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+</url>
+<url>
+    <loc>http://walrus-framework.com/doc/h-url</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+</url>
 </urlset>

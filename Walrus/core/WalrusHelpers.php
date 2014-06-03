@@ -24,6 +24,12 @@ class WalrusHelpers
     /**
      * Register all Helpers to load.
      *
+     * type:
+     *
+     * 0: accessibility from backend and frontend
+     * 1: accessibility from backend only (controllers/models)
+     * 2: accessibility from frontend only (views/templates)
+     *
      * A helper name should pass this regex: [A-Za-z_]+
      */
     private static $helpers = array(

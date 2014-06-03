@@ -3,6 +3,7 @@
 namespace engine\controllers;
 
 use Walrus\core\WalrusController;
+use Walrus\core\WalrusHelpers;
 
 /**
  * Class HomeController

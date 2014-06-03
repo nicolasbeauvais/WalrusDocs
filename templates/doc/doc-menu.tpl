@@ -35,3 +35,8 @@
     <li><a href="{$url}front-long-polling">Long polling</a></li>
     <li><a href="{$url}js-templating">Javascript Templating</a></li>
 </ul>
+
+<span class="h4">Helpers</span>
+<ul>
+    <li><a href="{$url}h-basics">Basics</a></li>
+</ul>
