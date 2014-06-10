@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<url>
+  <loc>http://walrus-framework.com/</loc>
+  <changefreq>weekly</changefreq>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>http://walrus-framework.com/doc</loc>
+  <changefreq>weekly</changefreq>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>http://walrus-framework.com/releases</loc>
+  <changefreq>weekly</changefreq>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>http://walrus-framework.com/doc/change-log</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://walrus-framework.com/doc/required</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://walrus-framework.com/doc/installation</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://walrus-framework.com/doc/getting-started</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+    <loc>http://walrus-framework.com/doc/monitoring-exception</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+</url>
+<url>
+    <loc>http://walrus-framework.com/doc/deploy</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://walrus-framework.com/doc/routing</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://walrus-framework.com/doc/cli</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://walrus-framework.com/doc/controllers</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://walrus-framework.com/doc/models</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://walrus-framework.com/doc/api</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://walrus-framework.com/doc/long-polling</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://walrus-framework.com/doc/skeleton</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://walrus-framework.com/doc/ajax-navigation</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+    <loc>http://walrus-framework.com/doc/ajax-navigation</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+</url>
+<url>
+    <loc>http://walrus-framework.com/doc/nolink</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://walrus-framework.com/doc/lazyload</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://walrus-framework.com/doc/front-long-polling</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://walrus-framework.com/doc/js-templating</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+    <loc>http://walrus-framework.com/doc/h-basics</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+</url>
+<url>
+    <loc>http://walrus-framework.com/doc/h-tag</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+</url>
+<url>
+    <loc>http://walrus-framework.com/doc/h-url</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+</url>
+</urlset>
