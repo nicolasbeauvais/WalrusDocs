@@ -196,11 +196,18 @@ class WalrusMonitoring
      */
     private function e2Process()
     {
-        $filer = new WalrusFileManager($_ENV['W']['ROOT_PATH']);
-        if (!file_exists($_ENV['W']['ROOT_PATH'] . 'logs')) {
+        if ($_ENV['W']['environment'] == 'development') {
+            if (!file_exists($_ENV['W']['TMP_PATH'])) {
+                $filerRoot = new WalrusFileManager($_ENV['W']['ROOT_PATH']);
+                $filerRoot->folderCreate('tmp');
+            }
+        }
+
+        $filer = new WalrusFileManager($_ENV['W']['TMP_PATH']);
+        if (!file_exists($_ENV['W']['TMP_PATH'] . 'logs')) {
             $filer->folderCreate('logs');
         }
-        if (!file_exists($_ENV['W']['ROOT_PATH'] . 'logs/error-exception-log.txt')) {
+        if (!file_exists($_ENV['W']['LOGS_PATH'] . 'error-exception-log.txt')) {
             $filer->setCurrentElem('logs');
             $filer->fileCreate('error-exception-log.txt');
         }
