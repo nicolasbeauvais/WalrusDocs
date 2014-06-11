@@ -66,7 +66,7 @@
 </pre>
 
 <p>That's all ! your long polling is fully setup on your backend. Now you need to request it with <strong>Walrus</strong>.js, take a
-    look to <a href="/doc/front-long-polling"><strong>Walrus</strong> FrontEnd long polling</a></p>
+    look to <a href="{$url}front-long-polling"><strong>Walrus</strong> FrontEnd long polling</a></p>
 
 
 

@@ -19,7 +19,7 @@
 
 <p>All html tag with a data-nolink attribute will be considered as nolink, the data-nolink
     attribute as to be a base64 valid url. You can generate it easily with the Walrus Url
-    <a href="/doc/helpers">Helper</a></p>
+    <a href="{$url}helpers">Helper</a></p>
 
 <p>Simple example:</p>
 <pre class="brush: php">

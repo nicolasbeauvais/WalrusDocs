@@ -3,7 +3,7 @@
 <h6>Get started</h6>
 
 <p>
-    You can create a new model with the <a href="/doc/cli"><strong>Walrus</strong> CLI</a>, or create it yourself
+    You can create a new model with the <a href="{$url}cli"><strong>Walrus</strong> CLI</a>, or create it yourself
     using this basic syntax:
 </p>
 

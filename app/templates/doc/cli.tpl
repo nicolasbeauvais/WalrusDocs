@@ -3,7 +3,7 @@
 <p>We added to <strong>Walrus</strong> a simple tool in order to generate few things that we usually do not like to do
    because it is simply repetitive like creating models and controllers.</p>
 
-<p>For more informations about deployment instruction check the <a href="/doc/deploy">deploy</a> section</p>
+<p>For more informations about deployment instruction check the <a href="{$url}deploy">deploy</a> section</p>
 
 <h6>Creating a model</h6>
 

@@ -30,7 +30,7 @@
 
 <h6>ACL</h6>
 
-<p>In can easily add ACL restriction to the template you usein a skeleton by following specifying
+<p>In can easily add <a href="{$url}acl">ACL</a> restriction to the template you use in a skeleton by following specifying
    the ACL parameter for a template</p>
 
 <pre class="brush: yaml">

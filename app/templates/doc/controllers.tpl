@@ -1,7 +1,7 @@
 <h1>Controllers</h1>
 
 <p>
-   You can create a new controller with the <a href="/doc/cli"><strong>Walrus</strong> CLI</a>, or create it yourself
+   You can create a new controller with the <a href="{$url}cli"><strong>Walrus</strong> CLI</a>, or create it yourself
     using this basic syntax:
 </p>
 
@@ -52,7 +52,7 @@
 <h6>Skeleton</h6>
 
 <p>You can add a skeleton by using the following method, for more info about skeleton see
-   <a href="">Skeleton</a></p>
+   <a href="{$url}skeleton">Skeleton</a></p>
 
 <pre class="brush: php">
     public function run()

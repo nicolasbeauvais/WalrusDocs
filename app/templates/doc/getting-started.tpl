@@ -18,8 +18,8 @@
 <p>Before you get started, check that two things :</p>
 
 <ul>
-    <li><span class="bold">You have the <a href="/required">proper requirements</a> on your machine</span></li>
-    <li><span class="bold">You have the <a href="/installation">properly installed</a> <strong>Walrus</strong>
+    <li><span class="bold">You have the <a href="{$url}required">proper requirements</a> on your machine</span></li>
+    <li><span class="bold">You have the <a href="{$url}installation">properly installed</a> <strong>Walrus</strong>
             on your machine</span></li>
 </ul>
 
@@ -50,17 +50,17 @@
                 directory.
             </li>
             <li>
-                <span class="bold">routes</span>/ - Your <a href="/doc/routing">routes</a> YAML files.
+                <span class="bold">routes</span>/ - Your <a href="{$url}routing">routes</a> YAML files.
             </li>
             <li>
-                <span class="bold">skeleton</span>/ - Your <a href="/doc/skeleton">skeletons</a> YAML files
+                <span class="bold">skeleton</span>/ - Your <a href="{$url}skeleton">skeletons</a> YAML files
             </li>
             <li>
                 <span class="italic">config.php</span> - This is where all your <strong>framework</strong> configs
                 go (database, ...).
             </li>
             <li>
-                <span class="italic">deploy.php</span> - <a href="/doc/deploy">Deploy</a> configuration
+                <span class="italic">deploy.php</span> - <a href="{$url}deploy">Deploy</a> configuration
             </li>
             <li>
                 <span class="italic">env.php</span> - All environment variables.
@@ -73,15 +73,15 @@
             <span class="bold">engine</span>/ - This is the back-end of your application.
             <ul>
                 <li>
-                    <span class="italic">controllers</span>/ -  Your own <a href="doc/api">API controllers</a>
+                    <span class="italic">controllers</span>/ -  Your own <a href="{$url}api">API controllers</a>
                     goes here.
                 </li>
                 <li>
-                    <span class="italic">controllers</span>/ -  Your own <a href="doc/controllers">controllers goes here.
+                    <span class="italic">controllers</span>/ -  Your own <a href="{$url}controllers">controllers goes here.
                     </a>
                 </li>
                 <li>
-                    <span class="italic">models</span>/ - Your own <a href="/doc/models">models</a> goes here.
+                    <span class="italic">models</span>/ - Your own <a href="{$url}models">models</a> goes here.
                 </li>
             </ul>
         </ul>
@@ -117,4 +117,4 @@
 
 <p>Speaking of CLI (a.k.a Tusk), it is probably the time for you to create some models or controllers in order to
     begin a project. Rendez-vous
-    <a href="/cli" class="bold">here</a> to see how to use Tusk.</p>
+    <a href="{$url}cli" class="bold">here</a> to see how to use Tusk.</p>

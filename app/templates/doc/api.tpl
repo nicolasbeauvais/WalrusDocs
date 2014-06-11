@@ -16,7 +16,7 @@ Here is the route pattern:
 
 <h6>API controller</h6>
 
-<p>You can create a new API controller with the <a href="/doc/cli"><strong>Walrus</strong> CLI</a>, or create it yourself with
+<p>You can create a new API controller with the <a href="{$url}cli"><strong>Walrus</strong> CLI</a>, or create it yourself with
     this basic syntax:</p>
 
 {literal}
@@ -38,7 +38,7 @@ Here is the route pattern:
 {/literal}
 
 <p>The api has the same <span class="bold">action</span> and <span class="bold">model</span> method as a normal
-    <a href="/doc/controllers">controller</a></p>
+    <a href="{$url}controllers">controller</a></p>
 
 <p>To make an API action you just need to return an array of data, it will be automatically parsed into JSON. <br/>
    For exemple the following controller :</p>
