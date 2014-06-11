@@ -55,6 +55,16 @@
   <priority>0.80</priority>
 </url>
 <url>
+    <loc>http://walrus-framework.com/doc/skeleton</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+</url>
+<url>
+    <loc>http://walrus-framework.com/doc/acl</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+</url>
+<url>
   <loc>http://walrus-framework.com/doc/cli</loc>
   <changefreq>weekly</changefreq>
   <priority>0.80</priority>
@@ -76,11 +86,6 @@
 </url>
 <url>
   <loc>http://walrus-framework.com/doc/long-polling</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>http://walrus-framework.com/doc/skeleton</loc>
   <changefreq>weekly</changefreq>
   <priority>0.80</priority>
 </url>

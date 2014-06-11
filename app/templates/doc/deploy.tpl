@@ -1,4 +1,4 @@
-<h5>Deploy</h5>
+<h1>Deploy</h1>
 
 <p>
     Walrus as a integrated deployment tool controlled by the <a href="/doc/cli">CLI</a>

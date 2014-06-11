@@ -16,9 +16,15 @@
     <li><a href="{$url}deploy">Deploy</a></li>
 </ul>
 
-<span class="h4">Back-end</span>
+<span class="h4">Configuration</span>
 <ul>
     <li><a href="{$url}routing">Routing</a></li>
+    <li><a href="{$url}skeleton">Skeleton</a></li>
+    <li><a href="{$url}acl">ACL</a></li>
+</ul>
+
+<span class="h4">Back-end</span>
+<ul>
     <li><a href="{$url}cli">CLI</a></li>
     <li><a href="{$url}controllers">Controllers</a></li>
     <li><a href="{$url}models">Models</a></li>
@@ -28,7 +34,6 @@
 
 <span class="h4">Front-end</span>
 <ul>
-    <li><a href="{$url}skeleton">Skeleton</a></li>
     <li><a href="{$url}ajax-navigation">AJAX navigation</a></li>
     <li><a href="{$url}nolink">Nolink</a></li>
     <li><a href="{$url}lazyload">Lazyload</a></li>

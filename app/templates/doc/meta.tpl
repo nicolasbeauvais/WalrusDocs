@@ -13,11 +13,21 @@
 {elseif $doc == 'monitoring-exception'}
     The monitoring of Walrus is processed when you use Walrus Framework in
     development mode. it handle the developper toolbar and the Framework
-    Exceptions
+    Exceptions.
+{elseif $doc == 'deploy'}
+    Walrus Framework let you deploy your application, parse the yaml
+    configuration to make it more powerfull and put your app to production
+    mode
 {elseif $doc == 'routing'}
     Walrus Framework use a simple routing system inspired by other big
     Framework. Walrus let you make really advanced route in YAML with all
     the routing options you need.
+{elseif $doc == 'skeleton'}
+    As managing template between front-end and back-end developers isn't always
+    easy, Walrus Framework made the perfect tool, called skeleton, to help teams
+    manae their template.
+{elseif $doc == 'ACL'}
+    Walrus Framework provide a basic but efficient way to manage an ACL tree
 {elseif $doc == 'cli'}
     With Walrus Framework all repetitive and boring task are made by the
     WalrusCLI tool, easy to use and intuitive.
@@ -35,10 +45,6 @@
 {elseif $doc == 'long-polling'}
     Walrus Framework is the first PHP fremework with a built in long polling script
     easy to use for your frontend and backend
-{elseif $doc == 'skeleton'}
-    As managing template between front-end and back-end developers isn't always
-    easy, Walrus Framework made the perfect tool, called skeleton, to help teams
-    manae their template.
 {elseif $doc == 'ajax-navigation'}
     Walrus Framework let you setup a complete ajax navigation script with 1 line
     of javascript code and give you plenty of ajax navigation features.

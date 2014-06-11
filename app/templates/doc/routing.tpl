@@ -58,8 +58,11 @@
 </pre>
 
 <h6>Simple ACL</h6>
-<p>To limit the access of a specific route in a simple way, you can use <strong>Walrus</strong> ACL system.
-   In this example we limit the access to user with the <span class="bold">admin</span> role</p>
+<p>
+    To limit the access of a specific route in a simple way, you can use <strong>Walrus</strong>
+    <a href="{$url}acl">ACL system.</a> In this example we limit the access to user with the
+    <span class="bold">admin</span> role
+</p>
 
 <pre class="brush: yaml">
     _home:
