@@ -297,7 +297,10 @@ body {
     display: block;
     margin: 0 auto 20px auto;
   }
-
+  .note {
+    padding: 15px;
+    background-color: #e0e6eb;
+  }
   .bold {
     font-weight: 600;
     font-size: 17px;

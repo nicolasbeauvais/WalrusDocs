@@ -5,6 +5,9 @@
    All your routes must be created with yaml in the <span class="bold">config/routes/</span> directory
 </p>
 
+<p class="note">All configuration YAML files in walrus are parsed to PHP array, you can create all the files you want in the correct
+    configuration directory</p>
+
 <h6>Simple route</h6>
 
 <p>A route need a least four information, a name, a path, a controller and an action</p>

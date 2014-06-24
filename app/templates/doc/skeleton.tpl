@@ -6,6 +6,9 @@
     <span class="bold">config/skeleton/</span> directory
 </p>
 
+<p class="note">All configuration YAML files in walrus are parsed to PHP array, you can create all the files you want in the correct
+    configuration directory</p>
+
 <h6>Skeleton example</h6>
 
 <p>This is a simple skeleton example:</p>

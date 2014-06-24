@@ -271,6 +271,9 @@ body {
   #doc-content img {
     display: block;
     margin: 0 auto 20px auto; }
+  #doc-content .note {
+    padding: 15px;
+    background-color: #e0e6eb; }
   #doc-content .bold {
     font-weight: 600;
     font-size: 17px;

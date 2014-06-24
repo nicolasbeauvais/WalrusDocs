@@ -10,17 +10,18 @@
     <li><a href="{$url}getting-started">Getting started</a></li>
 </ul>
 
-<span class="h4">Tools</span>
+<span class="h4">Developer Tools</span>
 <ul>
     <li><a href="{$url}monitoring-exception">Monitoring & Exception</a></li>
     <li><a href="{$url}deploy">Deploy</a></li>
 </ul>
 
-<span class="h4">Configuration</span>
+<span class="h4">Tools</span>
 <ul>
     <li><a href="{$url}routing">Routing</a></li>
     <li><a href="{$url}skeleton">Skeleton</a></li>
     <li><a href="{$url}acl">ACL</a></li>
+    <li><a href="{$url}form-builder">Form builder</a></li>
 </ul>
 
 <span class="h4">Back-end</span>

@@ -27,7 +27,13 @@
     easy, Walrus Framework made the perfect tool, called skeleton, to help teams
     manae their template.
 {elseif $doc == 'ACL'}
-    Walrus Framework provide a basic but efficient way to manage an ACL tree
+    Walrus Framework provide a basic but efficient way to manage an ACL tree.
+{elseif $doc == 'form-builder'}
+    Walrus Framework make it easy for you to create your forms with a builtin form
+    builder based on yaml entity description.
+{elseif $doc == 'i18n'}
+    Walrus internasionalisation is inspired by Ruby on Rails and let you build your
+    own traduction easily with YAML files.
 {elseif $doc == 'cli'}
     With Walrus Framework all repetitive and boring task are made by the
     WalrusCLI tool, easy to use and intuitive.

@@ -6,6 +6,9 @@
     <span class="bold">config/acls/acl.yml</span>
 </p>
 
+<p class="note">All configuration YAML files in walrus are parsed to PHP array, you can create all the files you want in the correct
+    configuration directory</p>
+
 <pre class="brush: php">
 administrator:
   'administrate'
