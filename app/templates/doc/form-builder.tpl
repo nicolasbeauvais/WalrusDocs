@@ -62,6 +62,10 @@ form_signup:
         - train
         - cars
         - plane
+    message:
+      type: textarea
+      check:
+        min: 50
 </pre>
 {/literal}
 
