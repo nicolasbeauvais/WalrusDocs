@@ -90,7 +90,7 @@ form_signup:
         <ul>
             <li><span class="bold">required: true</span> validate if the input value is set</li>
             <li><span class="bold">blank: true</span> validate if the input value is blank</li>
-            <li><span class="bold">empty: true</span> validate if the input value is set and empty</li>
+            <li><span class="bold">empty: true/false</span> validate if the input value is set and empty</li>
             <li><span class="bold">equal_to: value</span> validate if the input value is equal to the string value
                 (can be an int or float too)</li>
             <li><span class="bold">equal_to: %field</span> validate if the input value is equal to an other
