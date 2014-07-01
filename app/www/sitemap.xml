@@ -139,4 +139,9 @@
     <changefreq>weekly</changefreq>
     <priority>0.80</priority>
 </url>
+<url>
+    <loc>http://walrus-framework.com/doc/mailer</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+</url>
 </urlset>
