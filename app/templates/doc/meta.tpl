@@ -69,6 +69,8 @@
 {elseif $doc == 'h-basics'}
     Learn how Walrus helpers works , how to use them and how you can write your
     own helpers to add features to Walrus Framework.
+{elseif $doc == 'mailer'}
+    Learn how to work with PHPMailer (the well-known PHP library for email) inside Walrus.
 {else}
     Walrus framework documentation. Walrus is a framework for building
     web-application in a very simple way according to the Model-View-Controller
