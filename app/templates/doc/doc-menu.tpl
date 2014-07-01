@@ -46,3 +46,8 @@
 <ul>
     <li><a href="{$url}h-basics">Basics</a></li>
 </ul>
+
+<span class="h4">Mailer</span>
+<ul>
+    <li><a href="{$url}mailer">PHPMailer</a></li>
+</ul>
