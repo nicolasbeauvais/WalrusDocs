@@ -8,7 +8,7 @@
 
 <h6>Using the Mailer</h6>
 
-<p>There isn't a "right way" to use the mailer but don't forget that there is a method called <span class="bold">etSoft()</span>
+<p>There isn't a "right way" to use the mailer but don't forget that there is a method called <span class="bold">getSoft()</span>
 which can return you the content of a template, that's how we use it in WalrusTeam.</p>
 
 
