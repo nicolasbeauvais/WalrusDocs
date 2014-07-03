@@ -37,11 +37,11 @@
 
 <p>To create your own helper use this basic syntax</p>
 <pre class="brush: php">
-    namespace Walrus\core\helpers;
+    namespace app\core\helpers;
 
     /**
      * Class Test
-     * @package Walrus\core\helpers
+     * @package app\core\helpers
      */
     class Test
     {
